@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem;
-import PatientManagmentSystem.PatientManagmentSystem;
+import PatientManagmentSystem.PatientSystem.PatientMain;
+import PatientManagmentSystem.AdministratorSystem.AdminMain;
+import PatientManagmentSystem.DoctorSystem.DoctorMain;
+import PatientManagmentSystem.SecretarySystem.SecretaryMain;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -19,7 +22,7 @@ public class LoginPage extends javax.swing.JFrame {
      */
     public LoginPage() {
         initComponents();
-        this.setLocationRelativeTo(null);//sets form to center
+        this.setLocationRelativeTo(null);//sets form to center of screen
     }
 
     /**
@@ -44,11 +47,11 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         lblCreator = new javax.swing.JLabel();
         lblRegister = new javax.swing.JLabel();
+        txtPassword = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -147,16 +150,16 @@ public class LoginPage extends javax.swing.JFrame {
         txtID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtID.setForeground(new java.awt.Color(72, 219, 251));
 
-        txtPassword.setBackground(new java.awt.Color(39, 60, 117));
-        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(72, 219, 251));
-        txtPassword.setText("jPasswordField1");
-
         btnLogin.setBackground(new java.awt.Color(46, 134, 222));
         btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Confirm");
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLoginMouseClicked(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -188,6 +191,10 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        txtPassword.setBackground(new java.awt.Color(39, 60, 117));
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(72, 219, 251));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -210,10 +217,10 @@ public class LoginPage extends javax.swing.JFrame {
                                         .addContainerGap()
                                         .addComponent(jLabel5)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtID)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPassword))))
+                        .addGap(0, 108, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblCreator)))
@@ -291,6 +298,57 @@ public class LoginPage extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblRegisterMouseClicked
 
+    private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
+        
+        String InputID = (txtID.getText());
+        String InputPassword = (txtPassword.getText());
+        System.out.println(txtPassword.getText());
+        
+        if (InputPassword.contains("A9999"))
+        {
+            AdminMain regform = new AdminMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();       
+        }
+        else if(InputPassword.contains("A8888"))
+        {
+            DoctorMain regform = new DoctorMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();  
+        }
+         else if(InputPassword.contains("A7777"))
+        {
+            PatientMain regform = new PatientMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();  
+        }
+          else if(InputPassword.contains("A6666"))
+        {
+            SecretaryMain regform = new SecretaryMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();  
+        }
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_btnLoginMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +403,6 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtID;
-    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

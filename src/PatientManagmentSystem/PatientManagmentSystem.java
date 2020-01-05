@@ -1,9 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package PatientManagmentSystem;
+
+import java.beans.XMLDecoder;
+import java.beans.XMLEncoder;
+import java.io.File;
+import java.io.IOException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 
 
 
@@ -14,9 +18,13 @@ public class PatientManagmentSystem {
      */
     public static void main(String[] args) {
         
+        
+        
         System.out.println("Hello World");
         LoginPage mr=new LoginPage();
-        mr.setVisible(true);                          
+        mr.setVisible(true);   
+        
+        
     }
     
 }
