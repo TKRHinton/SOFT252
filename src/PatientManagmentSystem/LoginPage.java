@@ -301,8 +301,55 @@ public class LoginPage extends javax.swing.JFrame {
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         
         String InputID = (txtID.getText());
-        String InputPassword = (txtPassword.getText());
+        UserCurrent = getUserCurrent(InputID);
+        
+        
+        String InputPassword = txtPassword.getText();
+        
+        boolean result = checkDetails(InputID,InputPassword);
+        
+       
         System.out.println(txtPassword.getText());
+        
+        
+        if (result == true)
+        {
+            
+            if(InputID.startsWith("D"))
+            {
+            DoctorMain regform = new DoctorMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose(); 
+            }
+            
+            else if(InputID.startsWith("A"))
+            {
+            AdminMain regform = new AdminMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();    
+            }
+             
+            else if(InputID.startsWith("S"))
+            {
+            SecretaryMain regform = new SecretaryMain();
+            regform.setVisible(true);
+            regform.pack();
+            regform.setLocationRelativeTo(null);
+            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();  
+                           
+        }
+            
+         
+        
+        
+        
         
         if (InputPassword.contains("A9999"))
         {
@@ -341,14 +388,14 @@ public class LoginPage extends javax.swing.JFrame {
         this.dispose();  
         }
         
-        
-        
-        
-        
-        
+               
         
     }//GEN-LAST:event_btnLoginMouseClicked
 
+      public static boolean checkDetails(String username, String password)
+      {
+          
+      }
     /**
      * @param args the command line arguments
      */

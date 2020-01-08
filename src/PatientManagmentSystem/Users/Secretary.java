@@ -9,55 +9,14 @@ package PatientManagmentSystem.Users;
  *
  * @author Theon
  */
-public class Secretary {
-    private String user_ID;
-    private String Name; 
-    private String Address;
-    private String Password;
+public class Secretary extends User{
+
 
     public Secretary(String user_ID, String Name, String Address, String Password) {
-        this.user_ID = user_ID;
-        this.Name = Name;
-        this.Address = Address;
-        this.Password = Password;
+          super(user_ID, Name,Address,Password);
     }
 
     public Secretary() {
     }
 
-    public String getUser_ID() {
-        return user_ID;
-    }
-
-    public void setUser_ID(String user_ID) {
-        this.user_ID = user_ID;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String Name) {
-        this.Name = Name;
-    }
-
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
-    }
-    
-    
-    
-    
 }
