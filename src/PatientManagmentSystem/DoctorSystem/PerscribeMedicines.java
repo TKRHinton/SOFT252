@@ -5,6 +5,8 @@
  */
 package PatientManagmentSystem.DoctorSystem;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Theon

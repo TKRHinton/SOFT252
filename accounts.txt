@@ -12,9 +12,9 @@ Dan
 Dan Road
 D2021
 123
-Dan
-Dan Road
+John
+John Road
 D2022
 123
-Dan
-Dan Road
+Sam
+Sam Road

@@ -8,6 +8,12 @@ import PatientManagmentSystem.PatientSystem.PatientMain;
 import PatientManagmentSystem.AdministratorSystem.AdminMain;
 import PatientManagmentSystem.DoctorSystem.DoctorMain;
 import PatientManagmentSystem.SecretarySystem.SecretaryMain;
+import static PatientManagmentSystem.Utility.checkDetails;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -300,16 +306,21 @@ public class LoginPage extends javax.swing.JFrame {
 
     private void btnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseClicked
         
-        String InputID = (txtID.getText());
-        UserCurrent = getUserCurrent(InputID);
-        
+         boolean result = false;
+        String InputID = (txtID.getText());       
         
         String InputPassword = txtPassword.getText();
         
-        boolean result = checkDetails(InputID,InputPassword);
+        if(InputID.startsWith("P"))
+        {
+            // result = checkPatientDetails(InputID,InputPassword);
+        }
+        else
+        {
+             result = checkDetails(InputID,InputPassword);
+        }
         
-       
-        System.out.println(txtPassword.getText());
+        System.out.println(result);
         
         
         if (result == true)
@@ -344,58 +355,27 @@ public class LoginPage extends javax.swing.JFrame {
             regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();  
                            
-        }
-            
-         
-        
-        
-        
-        
-        if (InputPassword.contains("A9999"))
-        {
-            AdminMain regform = new AdminMain();
-            regform.setVisible(true);
-            regform.pack();
-            regform.setLocationRelativeTo(null);
-            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();       
-        }
-        else if(InputPassword.contains("A8888"))
-        {
-            DoctorMain regform = new DoctorMain();
-            regform.setVisible(true);
-            regform.pack();
-            regform.setLocationRelativeTo(null);
-            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();  
-        }
-         else if(InputPassword.contains("A7777"))
-        {
+             }
+              if(InputID.startsWith("P"))
+            {
             PatientMain regform = new PatientMain();
             regform.setVisible(true);
             regform.pack();
             regform.setLocationRelativeTo(null);
             regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();  
-        }
-          else if(InputPassword.contains("A6666"))
-        {
-            SecretaryMain regform = new SecretaryMain();
-            regform.setVisible(true);
-            regform.pack();
-            regform.setLocationRelativeTo(null);
-            regform.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();  
-        }
-        
+            this.dispose(); 
+            }
+         else{
+             System.out.println("Wrong");
+           }
+            
+             System.out.println(txtPassword.getText());
+      
                
         
     }//GEN-LAST:event_btnLoginMouseClicked
 
-      public static boolean checkDetails(String username, String password)
-      {
-          
-      }
+    }
     /**
      * @param args the command line arguments
      */
