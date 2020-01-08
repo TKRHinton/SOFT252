@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.GenerateID;
+import static PatientManagmentSystem.Utility.newUser;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -39,8 +45,8 @@ public class AddDocAnsSec extends javax.swing.JFrame {
         btnCreateAccount = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblCreator = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        RadioDoctor = new javax.swing.JRadioButton();
+        RadioSec = new javax.swing.JRadioButton();
         txtName = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
@@ -144,13 +150,13 @@ public class AddDocAnsSec extends javax.swing.JFrame {
         lblCreator.setForeground(new java.awt.Color(255, 255, 255));
         lblCreator.setText("Thomas Hinton - 10612662");
 
-        jRadioButton1.setBackground(new java.awt.Color(52, 73, 94));
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Doctor");
+        RadioDoctor.setBackground(new java.awt.Color(52, 73, 94));
+        RadioDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        RadioDoctor.setText("Doctor");
 
-        jRadioButton2.setBackground(new java.awt.Color(52, 73, 94));
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Secretary");
+        RadioSec.setBackground(new java.awt.Color(52, 73, 94));
+        RadioSec.setForeground(new java.awt.Color(255, 255, 255));
+        RadioSec.setText("Secretary");
 
         txtName.setBackground(new java.awt.Color(39, 60, 117));
         txtName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -218,9 +224,9 @@ public class AddDocAnsSec extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jRadioButton2)
+                        .addComponent(RadioSec)
                         .addGap(46, 46, 46)
-                        .addComponent(jRadioButton1))
+                        .addComponent(RadioDoctor))
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,8 +252,8 @@ public class AddDocAnsSec extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(RadioDoctor)
+                    .addComponent(RadioSec))
                 .addGap(45, 45, 45)
                 .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
@@ -285,6 +291,31 @@ public class AddDocAnsSec extends javax.swing.JFrame {
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
 
+          String ID = ("S");
+        
+          if (RadioDoctor.isSelected())
+          {
+              ID = GenerateID("D"); 
+          }
+          else if (RadioSec.isSelected())
+          {
+              ID = GenerateID("S"); 
+          }
+          
+        String InputName = txtName.getText();
+        String InputAddress = txtAddress.getText();
+        String InputPassword = txtPassword.getText();
+        
+        User user = new User(ID,InputName,InputAddress,InputPassword);
+        
+        try {
+            newUser(user);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        
+        
+        
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
@@ -344,6 +375,8 @@ public class AddDocAnsSec extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RadioDoctor;
+    private javax.swing.JRadioButton RadioSec;
     private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnLogout;
     private javax.swing.JLabel jLabel1;
@@ -352,8 +385,6 @@ public class AddDocAnsSec extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblCreator;
     private javax.swing.JLabel lblHeader;

@@ -4,6 +4,13 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.Users.Administrator;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.GenerateID;
+import static PatientManagmentSystem.Utility.newUser;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -116,6 +123,11 @@ public class AdminAccount extends javax.swing.JFrame {
         btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
         btnCreateAccount.setText("Confirm");
         btnCreateAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCreateAccountMouseClicked(evt);
+            }
+        });
         btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateAccountActionPerformed(evt);
@@ -285,6 +297,24 @@ public class AdminAccount extends javax.swing.JFrame {
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAddressActionPerformed
+
+    private void btnCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateAccountMouseClicked
+        
+        
+        String ID = GenerateID("A");   
+        
+        String InputName = txtName.getText();
+        String InputAddress = txtAddress.getText();
+        String InputPassword = txtPassword.getText();
+        
+        User Admin = new User(ID,InputName,InputAddress,InputPassword);
+        
+        try {
+            newUser(Admin);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_btnCreateAccountMouseClicked
 
     /**
      * @param args the command line arguments

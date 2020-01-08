@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.DeleteUser;
+import static PatientManagmentSystem.Utility.ReadAccountFile;
+import static PatientManagmentSystem.Utility.ReadPatientFile;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -111,6 +119,11 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Confirm");
         btnDelete.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
@@ -145,7 +158,11 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
         DropDownAccounts.setBackground(new java.awt.Color(46, 134, 222));
         DropDownAccounts.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownAccounts.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownAccounts.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DropDownAccounts.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownAccountsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -228,6 +245,29 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void DropDownAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownAccountsMouseClicked
+                        ArrayList<User> users = ReadAccountFile();
+              for (int i = 0; i < (users.size()); i++) {
+                  users.get(i);
+                if(users.get(i).getUser_ID().startsWith("D") ||  users.get(i).getUser_ID().startsWith("S"))
+                DropDownAccounts.addItem(users.get(i).getUser_ID());
+              }
+    }//GEN-LAST:event_DropDownAccountsMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+
+        String selectedID = DropDownAccounts.getSelectedItem().toString();
+        
+        try {
+            DeleteUser(selectedID);
+        } catch (IOException ex) {
+            Logger.getLogger(RemoveDocAndSec.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnDeleteMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -259,31 +299,24 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new RemoveDocAndSec().setVisible(true);
+                
+
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> DropDownAccounts;
-    private javax.swing.JButton btnCreateAccount1;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnLogout1;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblCreator;
-    private javax.swing.JLabel lblCreator1;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
 }

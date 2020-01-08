@@ -5,6 +5,7 @@
  */
 package PatientManagmentSystem;
 
+import PatientManagmentSystem.System.DoctorFeedback;
 import PatientManagmentSystem.Users.Administrator;
 import PatientManagmentSystem.Users.Doctor;
 import PatientManagmentSystem.Users.Patient;
@@ -15,15 +16,13 @@ import java.io.BufferedReader;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-
+import java.util.Random;
+import javax.swing.JOptionPane;
 /**
  *
  * @author thinton
  */
 public class Utility {
-    
-    
     
     public static ArrayList<User> ReadAccountFile()
     {
@@ -34,7 +33,6 @@ public class Utility {
             FileReader fread = new FileReader("accounts.txt");
             BufferedReader bread = new BufferedReader(fread);
            
-
               String id = "1";
               while ((id = bread.readLine()) != null) { 
                 
@@ -47,27 +45,20 @@ public class Utility {
                 
                 if (id.startsWith("A")) {
                 User user = new Administrator(id,name,address,password);
-                users.add(user);
-                }
+                users.add(user);}
                 
                 else  if (id.startsWith("D")) {
                 User user = new Doctor(id,name,address,password);
-                users.add(user);
-                } 
+                users.add(user);} 
                 
                 else  if (id.startsWith("S")) {
                 User user = new Secretary(id,name,address,password);
-                users.add(user);
-             //   }          
+                users.add(user);         
             }
               }
             bread.close();
-            fread.close();
-
-            
-                          
-      }
-        
+            fread.close();                          
+      }       
         catch(Exception error)
                 {
                     System.out.println("Error" + error);
@@ -75,8 +66,7 @@ public class Utility {
         
         return (users);
     }
-    
-    
+       
      public static ArrayList<User> ReadPatientFile()
     {
         ArrayList<User> users = new ArrayList<>();
@@ -141,21 +131,153 @@ public class Utility {
                   {
                       Correct = true;
                       return Correct;
-                  }
-                  
-                                 
+                  }                                                  
               }
-          }
-          
-          
-          
-          return Correct;
-          
+          }        
+          return Correct;        
       }
-     
+      
+      
+      
+      public static String GenerateID(String userLetter)
+      {
+          Random ran = new Random();
           
-    
-    
-    
-    
+          Integer ID = ran.nextInt(9000) + 1000;
+          
+          String NewID = userLetter + ID.toString();       
+          
+          return NewID;
+      }
+      
+      
+      public static void newUser(User newuser) throws IOException
+      {              
+        try (FileWriter writer = new FileWriter("accounts.txt", true)) {
+            writer.write(newuser.getUser_ID());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getPassword());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getName());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getAddress());
+            writer.write(System.getProperty("line.separator"));
+            writer.close();
+        }                
+      }
+      
+        public static void newPatient(Patient newuser) throws IOException
+      {              
+        try (FileWriter writer = new FileWriter("accountsPatient.txt", true)) {
+            writer.write(newuser.getUser_ID());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getPassword());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getName());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getAddress());
+            writer.write(System.getProperty("line.separator"));           
+            writer.write(newuser.getAge());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newuser.getGender());
+            writer.write(System.getProperty("line.separator"));
+            writer.close();
+        }                
+      }
+        
+        
+        
+        public static void DeleteUser(String SelectedUser) throws IOException
+        {
+            String tempFile = "temp.txt";
+            File oldFile = new File("accounts.txt");
+            File newFile = new File(tempFile);
+            
+            String id = "Error"; String password = "Error"; String name = "Error"; String address = "Error";
+            
+            
+             try  {
+                 FileWriter writer = new FileWriter(tempFile, true);
+                 BufferedWriter bwrite = new BufferedWriter(writer);
+                 PrintWriter pwrite = new PrintWriter(bwrite);
+                 
+                 
+                 FileReader fread = new FileReader("accounts.txt");
+                 BufferedReader bread = new BufferedReader(fread);
+           
+              
+                 while ((id = bread.readLine()) != null) { 
+                
+                 password = bread.readLine();
+                 name = bread.readLine();
+                 address = bread.readLine();
+             
+            
+                 if(!id.equals(SelectedUser))
+                 {
+                      writer.write(id);
+                      writer.write(System.getProperty("line.separator"));
+                      writer.write(password);
+                      writer.write(System.getProperty("line.separator"));
+                      writer.write(name);
+                      writer.write(System.getProperty("line.separator"));
+                      writer.write(address);
+                      writer.write(System.getProperty("line.separator"));                                            
+                    }
+                 }
+                 fread.close();
+                 pwrite.flush();
+                 pwrite.close();
+                 oldFile.delete();
+                 File dump = new File("accounts.txt");
+                 newFile.renameTo(dump);}
+             
+             catch(Exception e)
+             {
+                 JOptionPane.showMessageDialog(null, "Error" + e);
+             }
+        }
+        
+        public static void newFeedback(DoctorFeedback newFeedback) throws IOException
+        {
+            try (FileWriter writer = new FileWriter("DoctorFeedback.txt", true)) {
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getDoctor_ID() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getRating());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getFeedbackNotes());
+            writer.close();
+        }                
+        }
+        
+        public static ArrayList<DoctorFeedback> readFeedback()
+        {
+                ArrayList<DoctorFeedback> feedback = new ArrayList<>();
+        
+        try
+        {
+            FileReader fread = new FileReader("DoctorFeedback.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String id = "1";
+
+            while ((id = bread.readLine()) != null) {
+                String  rating = bread.readLine();
+                String notes = bread.readLine();
+                
+                DoctorFeedback user = new DoctorFeedback(id,rating,notes);
+                feedback.add(user);                
+            }
+            bread.close();
+            fread.close();                         
+      }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (feedback);
+        }
+      
 }

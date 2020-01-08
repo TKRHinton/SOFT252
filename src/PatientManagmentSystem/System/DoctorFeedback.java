@@ -11,13 +11,13 @@ package PatientManagmentSystem.System;
  */
 public class DoctorFeedback {
     private String Doctor_ID;
-    private Integer Rating;
+    private String Rating;
     private String FeedbackNotes;
 
     public DoctorFeedback() {
     }
 
-    public DoctorFeedback(String Doctor_ID, Integer Rating, String FeedbackNotes) {
+    public DoctorFeedback(String Doctor_ID, String Rating, String FeedbackNotes) {
         this.Doctor_ID = Doctor_ID;
         this.Rating = Rating;
         this.FeedbackNotes = FeedbackNotes;
@@ -31,11 +31,11 @@ public class DoctorFeedback {
         this.Doctor_ID = Doctor_ID;
     }
 
-    public Integer getRating() {
+    public String getRating() {
         return Rating;
     }
 
-    public void setRating(Integer Rating) {
+    public void setRating(String Rating) {
         this.Rating = Rating;
     }
 

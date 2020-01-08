@@ -6,10 +6,6 @@ S2020
 123
 Lucy
 34 Over Road
-D2020
-123
-Dan
-Dan Road
 D2021
 123
 John

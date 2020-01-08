@@ -25,16 +25,16 @@ public class PatientManagmentSystem {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         
 
-         FileWriter writer = new FileWriter("accounts.txt", true);
-         writer.write("A2020");
-         writer.write(System.getProperty("line.separator"));
-         writer.write("123");
-         writer.write(System.getProperty("line.separator"));
-         writer.write("James");
-         writer.write(System.getProperty("line.separator"));
-         writer.write("23 James Street");
-         writer.write(System.getProperty("line.separator"));
-         writer.close();
+         //FileWriter writer = new FileWriter("accounts.txt", true);
+        // writer.write("A2020");
+        // writer.write(System.getProperty("line.separator"));
+        // writer.write("123");
+        // writer.write(System.getProperty("line.separator"));
+        // writer.write("James");
+       //  writer.write(System.getProperty("line.separator"));
+        // writer.write("23 James Street");
+        // writer.write(System.getProperty("line.separator"));
+        // writer.close();
          
 
          

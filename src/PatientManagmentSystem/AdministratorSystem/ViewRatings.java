@@ -4,8 +4,13 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.System.DoctorFeedback;
+import static PatientManagmentSystem.Utility.readFeedback;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,6 +45,7 @@ public class ViewRatings extends javax.swing.JFrame {
         lblCreator = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRatings = new javax.swing.JTable();
+        btnCreateAccount = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -83,7 +89,7 @@ public class ViewRatings extends javax.swing.JFrame {
                 .addComponent(lblHeader)
                 .addGap(50, 50, 50)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addComponent(lblMin)
                 .addGap(18, 18, 18)
                 .addComponent(lblClose)
@@ -129,14 +135,7 @@ public class ViewRatings extends javax.swing.JFrame {
         tableRatings.setForeground(new java.awt.Color(255, 255, 255));
         tableRatings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Doctor ID", "Rating", "Feedback Notes"
@@ -152,28 +151,48 @@ public class ViewRatings extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tableRatings);
 
+        btnCreateAccount.setBackground(new java.awt.Color(46, 134, 222));
+        btnCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setText("View Feedback");
+        btnCreateAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreateAccount.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCreateAccountMouseClicked(evt);
+            }
+        });
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                        .addComponent(lblCreator))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                        .addComponent(lblCreator)))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(55, 55, 55)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addGap(44, 44, 44)
+                .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCreator, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,6 +238,25 @@ public class ViewRatings extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    private void btnCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateAccountMouseClicked
+
+           ArrayList<DoctorFeedback> feedback = readFeedback();
+              for (int i = 0; i < (feedback.size()); i++) {
+                  feedback.get(i);
+                  DefaultTableModel model = (DefaultTableModel)tableRatings.getModel();
+                  model.addRow(new Object[] {feedback.get(i).getDoctor_ID(),feedback.get(i).getRating(),feedback.get(i).getFeedbackNotes() });
+                       //  DropDownAccounts.addItem(users.get(i).getUser_ID());
+;
+              }
+        
+        
+
+    }//GEN-LAST:event_btnCreateAccountMouseClicked
+
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -255,6 +293,7 @@ public class ViewRatings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateAccount;
     private javax.swing.JButton btnLogout;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
