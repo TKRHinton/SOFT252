@@ -264,6 +264,9 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
             Logger.getLogger(RemoveDocAndSec.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+                JOptionPane.showMessageDialog(null, "User has Been Removed");
+
+        
         
         
     }//GEN-LAST:event_btnDeleteMouseClicked

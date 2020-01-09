@@ -10,6 +10,7 @@ import PatientManagmentSystem.System.Medicine;
 import static PatientManagmentSystem.Utility.AddMedicineRequest;
 import java.io.IOException;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -284,6 +285,8 @@ public class CreateMedicines extends javax.swing.JFrame {
         } catch (IOException e) {
             System.out.println("Error + e");
         }
+        
+        JOptionPane.showMessageDialog(null, "Medicine Request has been sent");
         
         
         

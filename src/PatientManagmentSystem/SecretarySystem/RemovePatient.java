@@ -295,6 +295,7 @@ public class RemovePatient extends javax.swing.JFrame {
         } catch (IOException e) {
             System.out.println("Error + e");
         }
+        JOptionPane.showMessageDialog(null, "Patient has been removed" );
 
 
 

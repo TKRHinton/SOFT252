@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -361,6 +362,7 @@ public class PerscribeMedicines extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
+        JOptionPane.showMessageDialog(null, "Percription has been added" );
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
@@ -395,9 +397,11 @@ public class PerscribeMedicines extends javax.swing.JFrame {
 
     private void DropDownMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownMedicineMouseClicked
         ArrayList<Medicine> users = readMedicine();
+        
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
-            DropDownPatient.addItem(users.get(i).getMedicine());
+            System.out.println(users.get(i).getMedicine());
+            DropDownMedicine.addItem(users.get(i).getMedicine());
         }
 
     }//GEN-LAST:event_DropDownMedicineMouseClicked

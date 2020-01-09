@@ -112,7 +112,6 @@ public class RequestAppointment extends javax.swing.JFrame {
         DropDownDoctor.setBackground(new java.awt.Color(46, 134, 222));
         DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DropDownDoctorMouseClicked(evt);
@@ -137,7 +136,6 @@ public class RequestAppointment extends javax.swing.JFrame {
         DropDownPatient.setBackground(new java.awt.Color(46, 134, 222));
         DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownPatient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DropDownPatientMouseClicked(evt);
@@ -345,6 +343,7 @@ public class RequestAppointment extends javax.swing.JFrame {
         } catch (IOException e) {
             System.out.println("Error + e");
         }
+        JOptionPane.showMessageDialog(null, "Request has been sent");
     }//GEN-LAST:event_btnAddFeedbackMouseClicked
 
     /**

@@ -2,11 +2,144 @@
 
 <ClassDiagram name="Managment System Model">
   <ClassDiagramComponents>
-    <Class name="UntitledClass" package="" visibility="public" xPosition="481.0" yPosition="206.0">
+    <Class name="Users" package="" visibility="public" xPosition="527.0" yPosition="127.0">
+      <Fields>
+        <Field name="String" type="User_ID" visibility="private"/>
+        <Field name="String" type="Name" visibility="private"/>
+        <Field name="String" type="Address" visibility="private"/>
+        <Field name="String" type="Password" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setUserID" returnType="void" visibility="public"/>
+        <Method name="getUserID" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public"/>
+        <Method name="GetName" returnType="String" visibility="public"/>
+        <Method name="SetAddress" returnType="void" visibility="public"/>
+        <Method name="GetAddress" returnType="String" visibility="public"/>
+        <Method name="SetPassword" returnType="void" visibility="public"/>
+        <Method name="getpassword" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Administrator" package="" visibility="public" xPosition="788.0" yPosition="60.0">
       <Fields/>
       <Constructors/>
       <Methods/>
     </Class>
+    <Class name="Doctor" package="" visibility="public" xPosition="928.0" yPosition="197.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Patient" package="" visibility="public" xPosition="884.0" yPosition="334.0">
+      <Fields>
+        <Field name="String" type="Age" visibility="private"/>
+        <Field name="String" type="Gender" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="SetAge" returnType="void" visibility="public"/>
+        <Method name="SetGender" returnType="void" visibility="public"/>
+        <Method name="SetAge" returnType="String" visibility="public"/>
+        <Method name="SetGender" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Secrectary" package="" visibility="public" xPosition="685.0" yPosition="457.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Account Request" package="" visibility="public" xPosition="946.0" yPosition="603.0">
+      <Fields>
+        <Field name="String" type="User_ID" visibility="private"/>
+        <Field name="String" type="Name" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Appointment" package="" visibility="public" xPosition="1143.0" yPosition="362.0">
+      <Fields>
+        <Field name="String" type="Patient" visibility="private"/>
+        <Field name="String" type="Doctor" visibility="private"/>
+        <Field name="Date" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="DoctorFeedback" package="" visibility="public" xPosition="1015.0" yPosition="31.0">
+      <Fields>
+        <Field name="String" type="Doctor_ID" visibility="private"/>
+        <Field name="String" type="Rating" visibility="private"/>
+        <Field name="String" type="FeedbackNotes" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Medicine" package="" visibility="public" xPosition="26.0" yPosition="92.0">
+      <Fields>
+        <Field name="Medicine" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="SetMedicine" returnType="void" visibility="public"/>
+        <Method name="Getmedicine" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Perscription" package="" visibility="public" xPosition="292.0" yPosition="45.0">
+      <Fields>
+        <Field name="String" type="Doctor_ID" visibility="private"/>
+        <Field name="String" type="Patient_ID" visibility="private"/>
+        <Field name="String" type="Medicine" visibility="private"/>
+        <Field name="String" type="Quantity" visibility="private"/>
+        <Field name="String" type="DoctorNotes" visibility="private"/>
+        <Field name="String" type="Dosage" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+        <Method name="untitledMethod1" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Utilities" package="" visibility="public" xPosition="217.0" yPosition="334.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ReadAccountFile" returnType="void" visibility="public"/>
+        <Method name="ReadPatientFile" returnType="void" visibility="public"/>
+        <Method name="CheckDeatiails" returnType="void" visibility="public"/>
+        <Method name="GenerateID" returnType="void" visibility="public"/>
+        <Method name="NewUser" returnType="void" visibility="public"/>
+        <Method name="NewPatient" returnType="void" visibility="public"/>
+        <Method name="DeleteUser" returnType="void" visibility="public"/>
+        <Method name="DeletePatient" returnType="void" visibility="public"/>
+        <Method name="NewFeedback" returnType="void" visibility="public"/>
+        <Method name="ReadFeedback" returnType="void" visibility="public"/>
+        <Method name="ReadAppointment" returnType="void" visibility="public"/>
+        <Method name="NewAppointment" returnType="void" visibility="public"/>
+        <Method name="Request" returnType="ReadAppointment" visibility="public"/>
+        <Method name="WrireAppointmentRequest" returnType="void" visibility="public"/>
+        <Method name="AddMedicine" returnType="void" visibility="public"/>
+        <Method name="ReadMedicine" returnType="void" visibility="public"/>
+        <Method name="AddPerscription" returnType="void" visibility="public"/>
+        <Method name="ReadPerscription" returnType="void" visibility="public"/>
+        <Method name="NewAccountRequest" returnType="void" visibility="public"/>
+        <Method name="ReadAccountrequest" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
   </ClassDiagramComponents>
-  <ClassDiagramRelations/>
+  <ClassDiagramRelations>
+    <HasRelation name="Doctor_ID" source="Doctor" target="DoctorFeedback" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Secrectary" target="Users"/>
+    <HasRelation name="User_ID" source="Account Request" target="Patient" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Medicine" source="Medicine" target="Perscription" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Administrator" target="Users"/>
+    <HasRelation name="Patient_ID" source="Perscription" target="Users" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Doctor" target="Users"/>
+    <IsRelation name="is" source="Patient" target="Users"/>
+    <HasRelation name="Paitent_ID" source="Patient" target="Appointment" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="UserID" source="Users" target="Utilities" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Doctor_ID" source="Doctor" target="Appointment" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
 </ClassDiagram>

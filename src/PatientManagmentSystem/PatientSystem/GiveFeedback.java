@@ -113,7 +113,6 @@ public class GiveFeedback extends javax.swing.JFrame {
         DropDownDoctor.setBackground(new java.awt.Color(46, 134, 222));
         DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DropDownDoctorMouseClicked(evt);
@@ -310,6 +309,7 @@ public class GiveFeedback extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
+        JOptionPane.showMessageDialog(null, "Feebback has been sent" );
              
     }//GEN-LAST:event_btnAddFeedbackMouseClicked
 

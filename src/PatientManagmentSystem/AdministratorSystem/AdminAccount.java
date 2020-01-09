@@ -314,6 +314,10 @@ public class AdminAccount extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
+        JOptionPane.showMessageDialog(null, "Admin has been added");
+        txtName.setText("");
+        txtAddress.setText("");
+        txtPassword.setText("");
     }//GEN-LAST:event_btnCreateAccountMouseClicked
 
     /**

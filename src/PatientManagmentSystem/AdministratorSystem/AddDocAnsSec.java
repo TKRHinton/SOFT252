@@ -313,7 +313,10 @@ public class AddDocAnsSec extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
-        
+        JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
+        txtName.setText("");
+        txtAddress.setText("");
+        txtPassword.setText("");
         
         
     }//GEN-LAST:event_btnCreateAccountActionPerformed

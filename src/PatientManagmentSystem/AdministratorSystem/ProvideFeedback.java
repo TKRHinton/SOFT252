@@ -347,6 +347,10 @@ public class ProvideFeedback extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
+        JOptionPane.showMessageDialog(null, "User has Been Removed");
+        txtID.setText("");
+        txtRating.setText("");
+        txtFeedBack.setText("");
 
 
     

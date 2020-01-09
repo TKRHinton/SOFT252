@@ -133,7 +133,6 @@ public class ViewAppointment extends javax.swing.JFrame {
         DropDownPatient.setBackground(new java.awt.Color(46, 134, 222));
         DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownPatient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 DropDownPatientMouseClicked(evt);
@@ -287,7 +286,7 @@ public class ViewAppointment extends javax.swing.JFrame {
         ArrayList<Appointment> Appointments = readAppointment();
         for (int i = 0; i < (Appointments.size()); i++) {
             Appointments.get(i);
-            if (Appointments.get(i).getDoctor_ID().equals(PatientID))
+            if (Appointments.get(i).getPatient_ID().equals(PatientID))
             {
                 DefaultTableModel model = (DefaultTableModel)tableRatings.getModel();
                 model.addRow(new Object[] {Appointments.get(i).getDoctor_ID(),Appointments.get(i).getPatient_ID(),Appointments.get(i).getDates() });

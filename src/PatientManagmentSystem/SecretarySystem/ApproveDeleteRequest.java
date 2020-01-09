@@ -6,6 +6,7 @@
 package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.DeletePatient;
 import static PatientManagmentSystem.Utility.DeleteUser;
 import static PatientManagmentSystem.Utility.ReadDeleteRequest;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
@@ -294,7 +295,7 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
          User newUser = new User(PatientID);
         
         try {
-            DeleteUser(newUser.toString());
+            DeletePatient(newUser.toString());
         } catch (IOException e) {
             System.out.println("Error + e");
         }

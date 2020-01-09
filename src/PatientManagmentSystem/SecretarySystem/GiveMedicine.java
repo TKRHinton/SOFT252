@@ -274,6 +274,7 @@ public class GiveMedicine extends javax.swing.JFrame {
         } catch (IOException e) {
             System.out.println("Error + e");
         }
+        JOptionPane.showMessageDialog(null, "Medicine has been added");
     }//GEN-LAST:event_btnConfirmMouseClicked
 
     /**

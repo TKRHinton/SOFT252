@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Utility">
+  <ClassDiagramComponents>
+    <Class name="Utility" package="PatientManagmentSystem" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ReadAccountFile" returnType="ArrayList&lt;User&gt;" visibility="public" isStatic="true"/>
+        <Method name="ReadPatientFile" returnType="ArrayList&lt;Patient&gt;" visibility="public" isStatic="true"/>
+        <Method name="checkDetails" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="username"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="GenerateID" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="userLetter"/>
+        </Method>
+        <Method name="newUser" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User" name="newuser"/>
+        </Method>
+        <Method name="newPatient" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Patient" name="newuser"/>
+        </Method>
+        <Method name="DeleteUser" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="SelectedUser"/>
+        </Method>
+        <Method name="DeletePatient" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="SelectedUser"/>
+        </Method>
+        <Method name="newFeedback" returnType="void" visibility="public" isStatic="true">
+          <Argument type="DoctorFeedback" name="newFeedback"/>
+        </Method>
+        <Method name="readFeedback" returnType="ArrayList&lt;DoctorFeedback&gt;" visibility="public" isStatic="true"/>
+        <Method name="readAppointment" returnType="ArrayList&lt;Appointment&gt;" visibility="public" isStatic="true"/>
+        <Method name="AddAppointment" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment" name="newAppointment"/>
+        </Method>
+        <Method name="AddAppointmentRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Appointment" name="newAppointment"/>
+        </Method>
+        <Method name="readAppointmentRequest" returnType="ArrayList&lt;Appointment&gt;" visibility="public" isStatic="true"/>
+        <Method name="AddMedicine" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine" name="medicine"/>
+        </Method>
+        <Method name="AddMedicineRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Medicine" name="medicine"/>
+        </Method>
+        <Method name="readMedicine" returnType="ArrayList&lt;Medicine&gt;" visibility="public" isStatic="true"/>
+        <Method name="readMedicineRequest" returnType="ArrayList&lt;Medicine&gt;" visibility="public" isStatic="true"/>
+        <Method name="AddPersrciption" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Perscription" name="newPersrciption"/>
+        </Method>
+        <Method name="readPerscription" returnType="ArrayList&lt;Perscription&gt;" visibility="public" isStatic="true"/>
+        <Method name="newAccountRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="User" name="Request"/>
+        </Method>
+        <Method name="readAccountRequest" returnType="ArrayList&lt;AccountRequest&gt;" visibility="public" isStatic="true"/>
+        <Method name="WritePatientlogin" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="WriteDeleteRequest" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="ID"/>
+        </Method>
+        <Method name="ReadDeleteRequest" returnType="ArrayList&lt;User&gt;" visibility="public" isStatic="true"/>
+        <Method name="ReadPatientlogin" returnType="String" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
