@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.SecretarySystem;
+import PatientManagmentSystem.System.Medicine;
+import static PatientManagmentSystem.Utility.AddMedicine;
+import static PatientManagmentSystem.Utility.readMedicineRequest;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -37,9 +42,10 @@ public class GiveMedicine extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         lblCreator = new javax.swing.JLabel();
         btnLogout1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tableRequests = new javax.swing.JTable();
-        btnAddFeedback = new javax.swing.JButton();
+        btnConfirm = new javax.swing.JButton();
+        DropDownMedicine = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -125,72 +131,80 @@ public class GiveMedicine extends javax.swing.JFrame {
             }
         });
 
-        tableRequests.setBackground(new java.awt.Color(52, 73, 94));
-        tableRequests.setForeground(new java.awt.Color(255, 255, 255));
-        tableRequests.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "User ID", "User Name", "User Address", "Gender", "Age"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btnConfirm.setBackground(new java.awt.Color(46, 134, 222));
+        btnConfirm.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirm.setText("Confirm");
+        btnConfirm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tableRequests);
-
-        btnAddFeedback.setBackground(new java.awt.Color(46, 134, 222));
-        btnAddFeedback.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnAddFeedback.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddFeedback.setText("Confirm");
-        btnAddFeedback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAddFeedback.addActionListener(new java.awt.event.ActionListener() {
+        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddFeedbackActionPerformed(evt);
+                btnConfirmActionPerformed(evt);
             }
         });
+
+        DropDownMedicine.setBackground(new java.awt.Color(46, 134, 222));
+        DropDownMedicine.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DropDownMedicine.setForeground(new java.awt.Color(255, 255, 255));
+        DropDownMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownMedicineMouseClicked(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Select Medicine Requests Below");
+
+        jLabel6.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Medicine");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(211, 211, 211)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                         .addComponent(lblCreator))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(93, 93, 93)
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(DropDownMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(176, 176, 176)
+                                .addComponent(jLabel1)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnAddFeedback)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addContainerGap(45, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DropDownMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(43, 43, 43)
+                .addComponent(btnConfirm)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreator))
@@ -236,9 +250,31 @@ public class GiveMedicine extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogout1ActionPerformed
 
-    private void btnAddFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeedbackActionPerformed
+    private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
 
-    }//GEN-LAST:event_btnAddFeedbackActionPerformed
+    }//GEN-LAST:event_btnConfirmActionPerformed
+
+    private void DropDownMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownMedicineMouseClicked
+        ArrayList<Medicine> users = readMedicineRequest();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+
+            DropDownMedicine.addItem(users.get(i).getMedicine());
+        }
+        
+    }//GEN-LAST:event_DropDownMedicineMouseClicked
+
+    private void btnConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmMouseClicked
+        String medicine = DropDownMedicine.getSelectedItem().toString();
+          
+          Medicine newAppointment = new Medicine(medicine);
+        
+        try {
+            AddMedicine(newAppointment);
+        } catch (IOException e) {
+            System.out.println("Error + e");
+        }
+    }//GEN-LAST:event_btnConfirmMouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,16 +312,17 @@ public class GiveMedicine extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddFeedback;
+    private javax.swing.JComboBox<String> DropDownMedicine;
+    private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btnLogout1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblCreator;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
-    private javax.swing.JTable tableRequests;
     // End of variables declaration//GEN-END:variables
 }

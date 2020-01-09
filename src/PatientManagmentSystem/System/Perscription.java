@@ -14,13 +14,13 @@ public class Perscription {
     private String Patient_ID;
     private String DoctorNotes;
     private String Medicine;
-    private Integer Quantity;
+    private String Quantity;
     private String Dosage;
 
     public Perscription() {
     }
 
-    public Perscription(String Doctor_ID, String Patient_ID, String DoctorNotes, String Medicine, Integer Quantity, String Dosage) {
+    public Perscription(String Doctor_ID, String Patient_ID, String DoctorNotes, String Medicine, String Quantity, String Dosage) {
         this.Doctor_ID = Doctor_ID;
         this.Patient_ID = Patient_ID;
         this.DoctorNotes = DoctorNotes;
@@ -61,11 +61,11 @@ public class Perscription {
         this.Medicine = Medicine;
     }
 
-    public Integer getQuantity() {
+    public String getQuantity() {
         return Quantity;
     }
 
-    public void setQuantity(Integer Quantity) {
+    public void setQuantity(String Quantity) {
         this.Quantity = Quantity;
     }
 

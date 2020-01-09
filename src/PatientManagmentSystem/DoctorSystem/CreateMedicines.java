@@ -5,6 +5,10 @@
  */
 package PatientManagmentSystem.DoctorSystem;
 
+import PatientManagmentSystem.System.Appointment;
+import PatientManagmentSystem.System.Medicine;
+import static PatientManagmentSystem.Utility.AddMedicineRequest;
+import java.io.IOException;
 import javax.swing.JFrame;
 
 /**
@@ -34,6 +38,13 @@ public class CreateMedicines extends javax.swing.JFrame {
         lblClose = new javax.swing.JLabel();
         lblMin = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnCreateMedicineRequest = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        lblCreator = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,17 +107,115 @@ public class CreateMedicines extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel5.setBackground(new java.awt.Color(52, 73, 94));
+
+        btnCreateMedicineRequest.setBackground(new java.awt.Color(46, 134, 222));
+        btnCreateMedicineRequest.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCreateMedicineRequest.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateMedicineRequest.setText("Confirm");
+        btnCreateMedicineRequest.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreateMedicineRequest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCreateMedicineRequestMouseClicked(evt);
+            }
+        });
+        btnCreateMedicineRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateMedicineRequestActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setBackground(new java.awt.Color(238, 82, 83));
+        btnLogout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Back");
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        lblCreator.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
+        lblCreator.setForeground(new java.awt.Color(255, 255, 255));
+        lblCreator.setText("Thomas Hinton - 10612662");
+
+        txtName.setBackground(new java.awt.Color(39, 60, 117));
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtName.setForeground(new java.awt.Color(72, 219, 251));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Medicine:");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Enter Details Below");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
+                .addComponent(lblCreator)
+                .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCreateMedicineRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(40, 40, 40)
+                .addComponent(btnCreateMedicineRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 265, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCreator, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 340, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -119,6 +228,67 @@ public class CreateMedicines extends javax.swing.JFrame {
     private void lblMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_lblMinMouseClicked
+
+    private void btnCreateMedicineRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineRequestActionPerformed
+
+    //    String ID = ("S");
+
+    //    if (RadioDoctor.isSelected())
+   //     {
+   //         ID = GenerateID("D");
+    //    }
+   //     else if (RadioSec.isSelected())
+    //    {
+    //        ID = GenerateID("S");
+   //     }
+
+   //     String InputName = txtName.getText();
+   //     String InputAddress = txtAddress.getText();
+    //    String InputPassword = txtPassword.getText();
+
+   //     User user = new User(ID,InputName,InputAddress,InputPassword);
+
+   //     try {
+   //         newUser(user);
+   //     } catch (IOException ex) {
+    //        Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+   //     }
+    }//GEN-LAST:event_btnCreateMedicineRequestActionPerformed
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        DoctorMain form = new DoctorMain();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void btnCreateMedicineRequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateMedicineRequestMouseClicked
+        
+
+          String InputName = txtName.getText();
+          
+          Medicine newMedicine = new Medicine(InputName);
+        
+        try {
+            AddMedicineRequest(newMedicine);
+        } catch (IOException e) {
+            System.out.println("Error + e");
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_btnCreateMedicineRequestMouseClicked
 
     /**
      * @param args the command line arguments
@@ -156,10 +326,17 @@ public class CreateMedicines extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCreateMedicineRequest;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblCreator;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

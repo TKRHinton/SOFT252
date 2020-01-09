@@ -114,6 +114,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnPerscribeMedicines.setForeground(new java.awt.Color(255, 255, 255));
         btnPerscribeMedicines.setText("Perscribe Medicinces");
         btnPerscribeMedicines.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPerscribeMedicines.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPerscribeMedicinesMouseClicked(evt);
+            }
+        });
         btnPerscribeMedicines.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPerscribeMedicinesActionPerformed(evt);
@@ -145,6 +150,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnConsultation.setForeground(new java.awt.Color(255, 255, 255));
         btnConsultation.setText("Consultation");
         btnConsultation.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConsultationMouseClicked(evt);
+            }
+        });
         btnConsultation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnConsultationActionPerformed(evt);
@@ -156,6 +166,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnAddMedicine.setForeground(new java.awt.Color(255, 255, 255));
         btnAddMedicine.setText("Add Medicine");
         btnAddMedicine.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMedicineMouseClicked(evt);
+            }
+        });
         btnAddMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMedicineActionPerformed(evt);
@@ -167,6 +182,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnPatientHistory.setForeground(new java.awt.Color(255, 255, 255));
         btnPatientHistory.setText("Patient History");
         btnPatientHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPatientHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPatientHistoryMouseClicked(evt);
+            }
+        });
         btnPatientHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPatientHistoryActionPerformed(evt);
@@ -178,6 +198,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnMake_Appointment.setForeground(new java.awt.Color(255, 255, 255));
         btnMake_Appointment.setText("Make Appointment");
         btnMake_Appointment.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnMake_Appointment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMake_AppointmentMouseClicked(evt);
+            }
+        });
         btnMake_Appointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMake_AppointmentActionPerformed(evt);
@@ -189,6 +214,11 @@ public class DoctorMain extends javax.swing.JFrame {
         btnViewAppointments.setForeground(new java.awt.Color(255, 255, 255));
         btnViewAppointments.setText("View Appointments");
         btnViewAppointments.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnViewAppointments.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnViewAppointmentsMouseClicked(evt);
+            }
+        });
         btnViewAppointments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewAppointmentsActionPerformed(evt);
@@ -310,6 +340,60 @@ public class DoctorMain extends javax.swing.JFrame {
     private void btnViewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAppointmentsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
+
+    private void btnConsultationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultationMouseClicked
+        Consultation form = new Consultation();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();       
+    }//GEN-LAST:event_btnConsultationMouseClicked
+
+    private void btnMake_AppointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMake_AppointmentMouseClicked
+        CreateAppointment form = new CreateAppointment();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnMake_AppointmentMouseClicked
+
+    private void btnAddMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMedicineMouseClicked
+        CreateMedicines form = new CreateMedicines();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnAddMedicineMouseClicked
+
+    private void btnPatientHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPatientHistoryMouseClicked
+        PatientHistory form = new PatientHistory();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnPatientHistoryMouseClicked
+
+    private void btnPerscribeMedicinesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerscribeMedicinesMouseClicked
+        PerscribeMedicines form = new PerscribeMedicines();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnPerscribeMedicinesMouseClicked
+
+    private void btnViewAppointmentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewAppointmentsMouseClicked
+        ViewAppointments form = new ViewAppointments();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnViewAppointmentsMouseClicked
 
     /**
      * @param args the command line arguments

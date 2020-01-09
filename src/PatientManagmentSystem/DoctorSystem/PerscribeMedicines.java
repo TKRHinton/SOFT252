@@ -5,6 +5,20 @@
  */
 package PatientManagmentSystem.DoctorSystem;
 
+import PatientManagmentSystem.AdministratorSystem.AdminAccount;
+import PatientManagmentSystem.System.Medicine;
+import PatientManagmentSystem.System.Perscription;
+import PatientManagmentSystem.Users.Patient;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.AddMedicine;
+import static PatientManagmentSystem.Utility.AddPersrciption;
+import static PatientManagmentSystem.Utility.ReadAccountFile;
+import static PatientManagmentSystem.Utility.ReadPatientFile;
+import static PatientManagmentSystem.Utility.readMedicine;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 
 /**
@@ -34,6 +48,23 @@ public class PerscribeMedicines extends javax.swing.JFrame {
         lblClose = new javax.swing.JLabel();
         lblMin = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        btnCreateAccount = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        lblCreator = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtNotes = new javax.swing.JTextField();
+        txtQuantity = new javax.swing.JTextField();
+        txtDosage = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        DropDownDoctor = new javax.swing.JComboBox<>();
+        DropDownPatient = new javax.swing.JComboBox<>();
+        DropDownMedicine = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,7 +107,7 @@ public class PerscribeMedicines extends javax.swing.JFrame {
                 .addComponent(lblHeader)
                 .addGap(30, 30, 30)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addComponent(lblMin)
                 .addGap(18, 18, 18)
                 .addComponent(lblClose)
@@ -96,17 +127,210 @@ public class PerscribeMedicines extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel5.setBackground(new java.awt.Color(52, 73, 94));
+
+        btnCreateAccount.setBackground(new java.awt.Color(46, 134, 222));
+        btnCreateAccount.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCreateAccount.setForeground(new java.awt.Color(255, 255, 255));
+        btnCreateAccount.setText("Confirm");
+        btnCreateAccount.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCreateAccount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateAccountActionPerformed(evt);
+            }
+        });
+
+        btnLogout.setBackground(new java.awt.Color(238, 82, 83));
+        btnLogout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Back");
+        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseClicked(evt);
+            }
+        });
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        lblCreator.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
+        lblCreator.setForeground(new java.awt.Color(255, 255, 255));
+        lblCreator.setText("Thomas Hinton - 10612662");
+
+        jLabel6.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Doctor ID:");
+
+        jLabel8.setBackground(new java.awt.Color(236, 240, 241));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Patient ID:");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel5.setText("Notes:");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Enter Details Below");
+
+        txtNotes.setBackground(new java.awt.Color(39, 60, 117));
+        txtNotes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNotes.setForeground(new java.awt.Color(72, 219, 251));
+
+        txtQuantity.setBackground(new java.awt.Color(39, 60, 117));
+        txtQuantity.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtQuantity.setForeground(new java.awt.Color(72, 219, 251));
+
+        txtDosage.setBackground(new java.awt.Color(39, 60, 117));
+        txtDosage.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDosage.setForeground(new java.awt.Color(72, 219, 251));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel7.setText("Medicine:");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel9.setText("Quantity:");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(236, 240, 241));
+        jLabel10.setText("Dosage:");
+
+        DropDownDoctor.setBackground(new java.awt.Color(46, 134, 222));
+        DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownDoctorMouseClicked(evt);
+            }
+        });
+
+        DropDownPatient.setBackground(new java.awt.Color(46, 134, 222));
+        DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
+        DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownPatientMouseClicked(evt);
+            }
+        });
+
+        DropDownMedicine.setBackground(new java.awt.Color(46, 134, 222));
+        DropDownMedicine.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DropDownMedicine.setForeground(new java.awt.Color(255, 255, 255));
+        DropDownMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownMedicineMouseClicked(evt);
+            }
+        });
+        DropDownMedicine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DropDownMedicineActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(lblCreator)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel5)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel10)))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDosage, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DropDownDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DropDownMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(DropDownDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtNotes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(DropDownMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDosage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblCreator))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 338, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -119,6 +343,68 @@ public class PerscribeMedicines extends javax.swing.JFrame {
     private void lblMinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblMinMouseClicked
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_lblMinMouseClicked
+
+    private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
+
+
+        String DoctorID = DropDownDoctor.getSelectedItem().toString();
+        String PatientID = DropDownPatient.getSelectedItem().toString();
+        String Medicine = DropDownMedicine.getSelectedItem().toString();       
+        String InputNotes = txtNotes.getText();
+        String InputQuantity = txtQuantity.getText();
+        String InputDosage = txtDosage.getText();
+
+        Perscription newPersrciption = new Perscription(DoctorID,PatientID,InputNotes,Medicine,InputQuantity,InputDosage);
+
+        try {
+            AddPersrciption(newPersrciption);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnCreateAccountActionPerformed
+
+    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        DoctorMain form = new DoctorMain();
+        form.setVisible(true);
+        form.pack();
+        form.setLocationRelativeTo(null);
+        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseClicked
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+        ArrayList<User> users = ReadAccountFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            if(users.get(i).getUser_ID().startsWith("D"))
+            DropDownDoctor.addItem(users.get(i).getUser_ID());
+        }
+    }//GEN-LAST:event_DropDownDoctorMouseClicked
+
+    private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
+        ArrayList<Patient> users = ReadPatientFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            DropDownPatient.addItem(users.get(i).getUser_ID());
+        }
+    }//GEN-LAST:event_DropDownPatientMouseClicked
+
+    private void DropDownMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownMedicineMouseClicked
+        ArrayList<Medicine> users = readMedicine();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            DropDownPatient.addItem(users.get(i).getMedicine());
+        }
+
+    }//GEN-LAST:event_DropDownMedicineMouseClicked
+
+    private void DropDownMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownMedicineActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DropDownMedicineActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,10 +442,27 @@ public class PerscribeMedicines extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> DropDownDoctor;
+    private javax.swing.JComboBox<String> DropDownMedicine;
+    private javax.swing.JComboBox<String> DropDownPatient;
+    private javax.swing.JButton btnCreateAccount;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblClose;
+    private javax.swing.JLabel lblCreator;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtDosage;
+    private javax.swing.JTextField txtNotes;
+    private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables
 }

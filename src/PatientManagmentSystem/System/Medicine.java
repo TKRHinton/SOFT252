@@ -18,11 +18,11 @@ public class Medicine {
     public Medicine(String Medicine) {
         this.Medicine = Medicine;
     }
-
+    
+    
     public String getMedicine() {
         return Medicine;
     }
-
     public void setMedicine(String Medicine) {
         this.Medicine = Medicine;
     }
