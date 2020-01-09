@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.PatientSystem;
+import PatientManagmentSystem.AdministratorSystem.AdminAccount;
+import PatientManagmentSystem.System.DoctorFeedback;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.ReadAccountFile;
+import static PatientManagmentSystem.Utility.newFeedback;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -41,10 +50,10 @@ public class GiveFeedback extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        DropDownRating = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtFeedback = new javax.swing.JTextArea();
         btnAddFeedback = new javax.swing.JButton();
+        txtRating = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -105,6 +114,11 @@ public class GiveFeedback extends javax.swing.JFrame {
         DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
         DropDownDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownDoctorMouseClicked(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(236, 240, 241));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -121,30 +135,34 @@ public class GiveFeedback extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Rating:");
 
-        DropDownRating.setBackground(new java.awt.Color(46, 134, 222));
-        DropDownRating.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        DropDownRating.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownRating.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        DropDownRating.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DropDownRatingActionPerformed(evt);
-            }
-        });
-
-        jTextArea1.setBackground(new java.awt.Color(46, 134, 222));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtFeedback.setBackground(new java.awt.Color(46, 134, 222));
+        txtFeedback.setColumns(20);
+        txtFeedback.setForeground(new java.awt.Color(255, 255, 255));
+        txtFeedback.setRows(5);
+        jScrollPane1.setViewportView(txtFeedback);
 
         btnAddFeedback.setBackground(new java.awt.Color(46, 134, 222));
         btnAddFeedback.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAddFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFeedback.setText("Confirm");
         btnAddFeedback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddFeedback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddFeedbackMouseClicked(evt);
+            }
+        });
         btnAddFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFeedbackActionPerformed(evt);
+            }
+        });
+
+        txtRating.setBackground(new java.awt.Color(39, 60, 117));
+        txtRating.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtRating.setForeground(new java.awt.Color(72, 219, 251));
+        txtRating.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRatingActionPerformed(evt);
             }
         });
 
@@ -175,7 +193,7 @@ public class GiveFeedback extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(DropDownRating, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -185,11 +203,11 @@ public class GiveFeedback extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DropDownDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addGap(38, 38, 38)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(DropDownRating, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                    .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,13 +290,39 @@ public class GiveFeedback extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogout1ActionPerformed
 
-    private void DropDownRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownRatingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DropDownRatingActionPerformed
-
     private void btnAddFeedbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeedbackActionPerformed
 
     }//GEN-LAST:event_btnAddFeedbackActionPerformed
+
+    private void txtRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRatingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRatingActionPerformed
+
+    private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
+           String DoctorID = DropDownDoctor.getSelectedItem().toString();
+        String InputRating = txtRating.getText();
+        String InputFeedback = txtFeedback.getText();
+        
+        DoctorFeedback feedback = new DoctorFeedback(DoctorID, InputRating, InputFeedback);
+        
+        try {
+            newFeedback(feedback);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+             
+    }//GEN-LAST:event_btnAddFeedbackMouseClicked
+
+    private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+          ArrayList<User> users = ReadAccountFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            if(users.get(i).getUser_ID().startsWith("D"))
+            DropDownDoctor.addItem(users.get(i).getUser_ID());
+        }     
+        
+        
+    }//GEN-LAST:event_DropDownDoctorMouseClicked
 
     /**
      * @param args the command line arguments
@@ -317,7 +361,6 @@ public class GiveFeedback extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> DropDownDoctor;
-    private javax.swing.JComboBox<String> DropDownRating;
     private javax.swing.JButton btnAddFeedback;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JLabel jLabel6;
@@ -326,11 +369,12 @@ public class GiveFeedback extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblClose;
     private javax.swing.JLabel lblCreator;
     private javax.swing.JLabel lblHeader;
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextArea txtFeedback;
+    private javax.swing.JTextField txtRating;
     // End of variables declaration//GEN-END:variables
 }

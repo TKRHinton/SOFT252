@@ -4,6 +4,15 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.PatientSystem;
+import PatientManagmentSystem.System.Appointment;
+import PatientManagmentSystem.Users.Patient;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.AddAppointment;
+import static PatientManagmentSystem.Utility.AddAppointmentRequest;
+import static PatientManagmentSystem.Utility.ReadAccountFile;
+import static PatientManagmentSystem.Utility.ReadPatientFile;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -104,6 +113,11 @@ public class RequestAppointment extends javax.swing.JFrame {
         DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
         DropDownDoctor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownDoctorMouseClicked(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(236, 240, 241));
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -124,6 +138,11 @@ public class RequestAppointment extends javax.swing.JFrame {
         DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
         DropDownPatient.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownPatientMouseClicked(evt);
+            }
+        });
         DropDownPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DropDownPatientActionPerformed(evt);
@@ -135,6 +154,11 @@ public class RequestAppointment extends javax.swing.JFrame {
         btnAddFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFeedback.setText("Confirm");
         btnAddFeedback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddFeedback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddFeedbackMouseClicked(evt);
+            }
+        });
         btnAddFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFeedbackActionPerformed(evt);
@@ -287,6 +311,41 @@ public class RequestAppointment extends javax.swing.JFrame {
     private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDateActionPerformed
+
+    private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+
+       ArrayList<User> users = ReadAccountFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            if(users.get(i).getUser_ID().startsWith("D"))
+            DropDownDoctor.addItem(users.get(i).getUser_ID());
+        }
+
+       
+    }//GEN-LAST:event_DropDownDoctorMouseClicked
+
+    private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
+
+        ArrayList<Patient> users = ReadPatientFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            DropDownPatient.addItem(users.get(i).getUser_ID());
+        }      
+    }//GEN-LAST:event_DropDownPatientMouseClicked
+
+    private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
+             String DoctorID = DropDownDoctor.getSelectedItem().toString();
+          String PatientID = DropDownPatient.getSelectedItem().toString();
+          String InputDate = txtDate.getText();
+          
+          Appointment newAppointment = new Appointment(DoctorID, PatientID, InputDate);
+        
+        try {
+            AddAppointmentRequest(newAppointment);
+        } catch (IOException e) {
+            System.out.println("Error + e");
+        }
+    }//GEN-LAST:event_btnAddFeedbackMouseClicked
 
     /**
      * @param args the command line arguments
