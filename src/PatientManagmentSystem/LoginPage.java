@@ -8,10 +8,12 @@ import PatientManagmentSystem.PatientSystem.PatientMain;
 import PatientManagmentSystem.AdministratorSystem.AdminMain;
 import PatientManagmentSystem.DoctorSystem.DoctorMain;
 import PatientManagmentSystem.SecretarySystem.SecretaryMain;
+import static PatientManagmentSystem.Utility.WritePatientlogin;
 import static PatientManagmentSystem.Utility.checkDetails;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -358,6 +360,13 @@ public class LoginPage extends javax.swing.JFrame {
              }
               if(InputID.startsWith("P"))
             {
+            
+                try {    
+                    WritePatientlogin(InputID);
+                } catch (IOException ex) {
+                    Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
             PatientMain regform = new PatientMain();
             regform.setVisible(true);
             regform.pack();

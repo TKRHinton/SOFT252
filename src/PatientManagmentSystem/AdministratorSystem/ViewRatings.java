@@ -246,7 +246,6 @@ public class ViewRatings extends javax.swing.JFrame {
                   DefaultTableModel model = (DefaultTableModel)tableRatings.getModel();
                   model.addRow(new Object[] {feedback.get(i).getDoctor_ID(),feedback.get(i).getRating(),feedback.get(i).getFeedbackNotes() });
                        //  DropDownAccounts.addItem(users.get(i).getUser_ID());
-;
               }
         
         

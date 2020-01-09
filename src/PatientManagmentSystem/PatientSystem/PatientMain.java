@@ -5,6 +5,12 @@
  */
 package PatientManagmentSystem.PatientSystem;
 import PatientManagmentSystem.LoginPage;
+import static PatientManagmentSystem.Utility.ReadPatientlogin;
+import static PatientManagmentSystem.Utility.WriteDeleteRequest;
+import static PatientManagmentSystem.Utility.WritePatientlogin;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 
@@ -321,7 +327,16 @@ public class PatientMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTerminateAccountActionPerformed
 
     private void btnTerminateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerminateAccountMouseClicked
-      JOptionPane.showMessageDialog(null, "A request has been Sent to secretary ");
+       
+        String ID = ReadPatientlogin();
+        try {
+            WriteDeleteRequest(ID);
+        } catch (IOException ex) {
+            Logger.getLogger(PatientMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, "A request has been Sent to secretary ");
     }//GEN-LAST:event_btnTerminateAccountMouseClicked
 
     private void btnFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFeedbackMouseClicked

@@ -40,9 +40,7 @@ public class DoctorMain extends javax.swing.JFrame {
         btnPerscribeMedicines = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblCreator = new javax.swing.JLabel();
-        btnConsultation = new javax.swing.JButton();
         btnAddMedicine = new javax.swing.JButton();
-        btnPatientHistory = new javax.swing.JButton();
         btnMake_Appointment = new javax.swing.JButton();
         btnViewAppointments = new javax.swing.JButton();
 
@@ -145,22 +143,6 @@ public class DoctorMain extends javax.swing.JFrame {
         lblCreator.setForeground(new java.awt.Color(255, 255, 255));
         lblCreator.setText("Thomas Hinton - 10612662");
 
-        btnConsultation.setBackground(new java.awt.Color(46, 134, 222));
-        btnConsultation.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnConsultation.setForeground(new java.awt.Color(255, 255, 255));
-        btnConsultation.setText("Consultation");
-        btnConsultation.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnConsultation.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnConsultationMouseClicked(evt);
-            }
-        });
-        btnConsultation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultationActionPerformed(evt);
-            }
-        });
-
         btnAddMedicine.setBackground(new java.awt.Color(46, 134, 222));
         btnAddMedicine.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAddMedicine.setForeground(new java.awt.Color(255, 255, 255));
@@ -174,22 +156,6 @@ public class DoctorMain extends javax.swing.JFrame {
         btnAddMedicine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddMedicineActionPerformed(evt);
-            }
-        });
-
-        btnPatientHistory.setBackground(new java.awt.Color(46, 134, 222));
-        btnPatientHistory.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnPatientHistory.setForeground(new java.awt.Color(255, 255, 255));
-        btnPatientHistory.setText("Patient History");
-        btnPatientHistory.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPatientHistory.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnPatientHistoryMouseClicked(evt);
-            }
-        });
-        btnPatientHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientHistoryActionPerformed(evt);
             }
         });
 
@@ -240,14 +206,11 @@ public class DoctorMain extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnMake_Appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnConsultation, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnMake_Appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(btnAddMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnPerscribeMedicines, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -256,9 +219,7 @@ public class DoctorMain extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(btnConsultation, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(118, 118, 118)
                 .addComponent(btnMake_Appointment, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -267,13 +228,11 @@ public class DoctorMain extends javax.swing.JFrame {
                         .addComponent(lblCreator))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnAddMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnPatientHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
+                        .addGap(39, 39, 39)
                         .addComponent(btnPerscribeMedicines, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -321,17 +280,9 @@ public class DoctorMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogoutActionPerformed
 
-    private void btnConsultationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConsultationActionPerformed
-
     private void btnAddMedicineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddMedicineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddMedicineActionPerformed
-
-    private void btnPatientHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientHistoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPatientHistoryActionPerformed
 
     private void btnMake_AppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMake_AppointmentActionPerformed
         // TODO add your handling code here:
@@ -340,15 +291,6 @@ public class DoctorMain extends javax.swing.JFrame {
     private void btnViewAppointmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewAppointmentsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
-
-    private void btnConsultationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConsultationMouseClicked
-        Consultation form = new Consultation();
-        form.setVisible(true);
-        form.pack();
-        form.setLocationRelativeTo(null);
-        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();       
-    }//GEN-LAST:event_btnConsultationMouseClicked
 
     private void btnMake_AppointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMake_AppointmentMouseClicked
         CreateAppointment form = new CreateAppointment();
@@ -367,15 +309,6 @@ public class DoctorMain extends javax.swing.JFrame {
         form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.dispose();
     }//GEN-LAST:event_btnAddMedicineMouseClicked
-
-    private void btnPatientHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPatientHistoryMouseClicked
-        PatientHistory form = new PatientHistory();
-        form.setVisible(true);
-        form.pack();
-        form.setLocationRelativeTo(null);
-        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_btnPatientHistoryMouseClicked
 
     private void btnPerscribeMedicinesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPerscribeMedicinesMouseClicked
         PerscribeMedicines form = new PerscribeMedicines();
@@ -432,10 +365,8 @@ public class DoctorMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddMedicine;
-    private javax.swing.JButton btnConsultation;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMake_Appointment;
-    private javax.swing.JButton btnPatientHistory;
     private javax.swing.JButton btnPerscribeMedicines;
     private javax.swing.JButton btnViewAppointments;
     private javax.swing.JPanel jPanel4;

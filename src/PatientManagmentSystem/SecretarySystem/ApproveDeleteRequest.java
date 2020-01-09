@@ -4,8 +4,16 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.SecretarySystem;
+import PatientManagmentSystem.Users.Patient;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.DeleteUser;
+import static PatientManagmentSystem.Utility.ReadDeleteRequest;
+import static PatientManagmentSystem.Utility.ReadPatientFile;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -40,6 +48,7 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableRequests = new javax.swing.JTable();
         btnAddFeedback = new javax.swing.JButton();
+        btnAddFeedback1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -129,21 +138,14 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
         tableRequests.setForeground(new java.awt.Color(255, 255, 255));
         tableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "User ID", "User Name", "User Address", "Gender", "Age"
+                "User ID", "User Name", "User Address", "Password", "Age", "Gender"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -157,9 +159,30 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
         btnAddFeedback.setForeground(new java.awt.Color(255, 255, 255));
         btnAddFeedback.setText("Confirm");
         btnAddFeedback.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddFeedback.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddFeedbackMouseClicked(evt);
+            }
+        });
         btnAddFeedback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddFeedbackActionPerformed(evt);
+            }
+        });
+
+        btnAddFeedback1.setBackground(new java.awt.Color(46, 134, 222));
+        btnAddFeedback1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAddFeedback1.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddFeedback1.setText("Click Here to View Requests");
+        btnAddFeedback1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAddFeedback1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddFeedback1MouseClicked(evt);
+            }
+        });
+        btnAddFeedback1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddFeedback1ActionPerformed(evt);
             }
         });
 
@@ -173,24 +196,27 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblCreator))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCreator)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddFeedback1)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addComponent(btnAddFeedback1)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(26, 26, 26)
                 .addComponent(btnAddFeedback)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(38, 38, 38)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreator))
@@ -240,6 +266,41 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnAddFeedbackActionPerformed
 
+    private void btnAddFeedback1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedback1MouseClicked
+        ArrayList<Patient> users = ReadPatientFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+
+            DefaultTableModel model = (DefaultTableModel)tableRequests.getModel();
+            model.addRow(new Object[] {users.get(i).getUser_ID(),users.get(i).getName(),users.get(i).getAddress(),users.get(i).getPassword(),users.get(i).getAge(),users.get(i).getGender()});
+
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddFeedback1MouseClicked
+
+    private void btnAddFeedback1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddFeedback1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddFeedback1ActionPerformed
+
+    private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
+     
+        DefaultTableModel model = (DefaultTableModel)tableRequests.getModel();
+        
+        int selectedRowIndex = tableRequests.getSelectedRow();
+        
+        String PatientID = tableRequests.getValueAt(selectedRowIndex,0).toString();
+        
+         User newUser = new User(PatientID);
+        
+        try {
+            DeleteUser(newUser.toString());
+        } catch (IOException e) {
+            System.out.println("Error + e");
+        }
+
+    }//GEN-LAST:event_btnAddFeedbackMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -277,6 +338,7 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddFeedback;
+    private javax.swing.JButton btnAddFeedback1;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

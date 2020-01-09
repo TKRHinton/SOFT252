@@ -20,6 +20,11 @@ public class User {
         
     }
     
+      public User(String user_ID)
+    {
+         this.user_ID = user_ID;
+    }
+    
     public User(String user_ID, String Name, String Address, String Password)
     {
         this.user_ID = user_ID;
@@ -28,10 +33,10 @@ public class User {
         this.Password = Password;
     }
     
-    public User(String user_ID, String Password)
+    public User(String Name, String Address)
     {
-        this.user_ID = user_ID;
-        this.Password = Password;
+        this.Name = Name;
+        this.Address = Address;
     }
 
     public String getUser_ID() {
