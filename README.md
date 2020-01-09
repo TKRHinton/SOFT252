@@ -7,12 +7,15 @@ The User Names for the Application
 Patient: 
 * P2020 
 * 123
+
  Admin: 
 * A2020   
 * 123
+
 Doctor:
 * D2022 
 * 123
+
 Secretary: 
 * S2020 
 * 123
