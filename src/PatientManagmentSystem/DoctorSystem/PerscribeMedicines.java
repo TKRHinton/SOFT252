@@ -347,22 +347,25 @@ public class PerscribeMedicines extends javax.swing.JFrame {
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
 
-
+        //Takes Users Infomation and creates strings
         String DoctorID = DropDownDoctor.getSelectedItem().toString();
         String PatientID = DropDownPatient.getSelectedItem().toString();
         String Medicine = DropDownMedicine.getSelectedItem().toString();       
         String InputNotes = txtNotes.getText();
         String InputQuantity = txtQuantity.getText();
         String InputDosage = txtDosage.getText();
-
+        
+        //puts stirngs into perscription object
         Perscription newPersrciption = new Perscription(DoctorID,PatientID,InputNotes,Medicine,InputQuantity,InputDosage);
-
+        
+        //tries to call AddPerscription Fucntion to add users input to text file
         try {
             AddPersrciption(newPersrciption);
+               JOptionPane.showMessageDialog(null, "Percription has been added" );
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }
-        JOptionPane.showMessageDialog(null, "Percription has been added" );
+     
     }//GEN-LAST:event_btnCreateAccountActionPerformed
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
@@ -379,6 +382,7 @@ public class PerscribeMedicines extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+        //Makes array list of Doters and adds them to drop down box
         ArrayList<User> users = ReadAccountFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
@@ -388,6 +392,7 @@ public class PerscribeMedicines extends javax.swing.JFrame {
     }//GEN-LAST:event_DropDownDoctorMouseClicked
 
     private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
+        //Makes array list of Patients and adds them to drop down box
         ArrayList<Patient> users = ReadPatientFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
@@ -396,6 +401,7 @@ public class PerscribeMedicines extends javax.swing.JFrame {
     }//GEN-LAST:event_DropDownPatientMouseClicked
 
     private void DropDownMedicineMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownMedicineMouseClicked
+        //Makes array list of Medicine and adds them to drop down box
         ArrayList<Medicine> users = readMedicine();
         
         for (int i = 0; i < (users.size()); i++) {

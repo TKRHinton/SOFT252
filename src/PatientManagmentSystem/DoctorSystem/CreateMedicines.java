@@ -232,28 +232,6 @@ public class CreateMedicines extends javax.swing.JFrame {
 
     private void btnCreateMedicineRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateMedicineRequestActionPerformed
 
-    //    String ID = ("S");
-
-    //    if (RadioDoctor.isSelected())
-   //     {
-   //         ID = GenerateID("D");
-    //    }
-   //     else if (RadioSec.isSelected())
-    //    {
-    //        ID = GenerateID("S");
-   //     }
-
-   //     String InputName = txtName.getText();
-   //     String InputAddress = txtAddress.getText();
-    //    String InputPassword = txtPassword.getText();
-
-   //     User user = new User(ID,InputName,InputAddress,InputPassword);
-
-   //     try {
-   //         newUser(user);
-   //     } catch (IOException ex) {
-    //        Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
-   //     }
     }//GEN-LAST:event_btnCreateMedicineRequestActionPerformed
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
@@ -275,18 +253,21 @@ public class CreateMedicines extends javax.swing.JFrame {
 
     private void btnCreateMedicineRequestMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateMedicineRequestMouseClicked
         
-
+          //Gets Medicine Name
           String InputName = txtName.getText();
           
+          //Create New Medicine Object
           Medicine newMedicine = new Medicine(InputName);
         
+          //Tires to add object to requestmedicine file
         try {
             AddMedicineRequest(newMedicine);
+            JOptionPane.showMessageDialog(null, "Medicine Request has been sent");
         } catch (IOException e) {
             System.out.println("Error + e");
         }
         
-        JOptionPane.showMessageDialog(null, "Medicine Request has been sent");
+      
         
         
         

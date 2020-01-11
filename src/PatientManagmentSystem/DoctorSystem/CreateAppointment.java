@@ -278,13 +278,15 @@ public class CreateAppointment extends javax.swing.JFrame {
 
     private void btnCreateAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAppointmentActionPerformed
 
-      
+          //Gets Users input and put them in strings
           String DoctorID = DropDownDoctor.getSelectedItem().toString();
           String PatientID = DropDownPatient.getSelectedItem().toString();
           String InputDate = txtDate.getText();
           
+          //Takes string and make new object
           Appointment newAppointment = new Appointment(DoctorID, PatientID, InputDate);
         
+          //Tries to call AddAppointment function to Add object to text file
         try {
             AddAppointment(newAppointment);
             JOptionPane.showMessageDialog(null, "Appointment has been added");
@@ -312,6 +314,7 @@ public class CreateAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCreateAppointmentMouseClicked
 
     private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+        //makes array list of Doctors and adds them to drop down box
         ArrayList<User> users = ReadAccountFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
@@ -321,7 +324,8 @@ public class CreateAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_DropDownDoctorMouseClicked
 
     private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
-         ArrayList<Patient> users = ReadPatientFile();
+       //makes array list of Patients and adds them to drop down box
+        ArrayList<Patient> users = ReadPatientFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
             DropDownPatient.addItem(users.get(i).getUser_ID());

@@ -275,12 +275,16 @@ public class ViewAppointments extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void btnViewAppointmentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewAppointmentsMouseClicked
+        //Gets Selected Doctor ID
         String DoctorID = DropDownDoctor.getSelectedItem().toString();
+        //Reads Appointments and puts all infomation into an array list
         ArrayList<Appointment> Appointments = readAppointment();
+        //Checks if current appointment has same Doctor ID as selected
         for (int i = 0; i < (Appointments.size()); i++) {
             Appointments.get(i);
             if (Appointments.get(i).getDoctor_ID().equals(DoctorID))
             {
+                //if true put appointment infoation in table for the user to see
             DefaultTableModel model = (DefaultTableModel)tableRatings.getModel();
             model.addRow(new Object[] {Appointments.get(i).getDoctor_ID(),Appointments.get(i).getPatient_ID(),Appointments.get(i).getDates() });
             }
@@ -293,6 +297,7 @@ public class ViewAppointments extends javax.swing.JFrame {
     }//GEN-LAST:event_btnViewAppointmentsActionPerformed
 
     private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+        //Reads Account file to Doctors and puts them in dropdown list
         ArrayList<User> users = ReadAccountFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
