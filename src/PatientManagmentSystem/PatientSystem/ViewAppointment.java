@@ -7,6 +7,7 @@ package PatientManagmentSystem.PatientSystem;
 import PatientManagmentSystem.System.Appointment;
 import PatientManagmentSystem.Users.Patient;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
+import static PatientManagmentSystem.Utility.ReadPatientlogin;
 import static PatientManagmentSystem.Utility.readAppointment;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -45,7 +46,6 @@ public class ViewAppointment extends javax.swing.JFrame {
         btnLogout1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableRatings = new javax.swing.JTable();
-        DropDownPatient = new javax.swing.JComboBox<>();
         btnViewAppointments = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -107,14 +107,7 @@ public class ViewAppointment extends javax.swing.JFrame {
         tableRatings.setForeground(new java.awt.Color(255, 255, 255));
         tableRatings.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Doctor ID", "Patient ID", "Dates"
@@ -129,20 +122,6 @@ public class ViewAppointment extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableRatings);
-
-        DropDownPatient.setBackground(new java.awt.Color(46, 134, 222));
-        DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DropDownPatientMouseClicked(evt);
-            }
-        });
-        DropDownPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DropDownPatientActionPerformed(evt);
-            }
-        });
 
         btnViewAppointments.setBackground(new java.awt.Color(46, 134, 222));
         btnViewAppointments.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -165,12 +144,6 @@ public class ViewAppointment extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
-                .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -181,17 +154,19 @@ public class ViewAppointment extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(191, 191, 191)
+                .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                .addGap(144, 144, 144)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnViewAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreator))
@@ -268,26 +243,17 @@ public class ViewAppointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLogout1ActionPerformed
 
-    private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
-
-        ArrayList<Patient> users = ReadPatientFile();
-        for (int i = 0; i < (users.size()); i++) {
-            users.get(i);
-            DropDownPatient.addItem(users.get(i).getUser_ID());
-        }
-    }//GEN-LAST:event_DropDownPatientMouseClicked
-
-    private void DropDownPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownPatientActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DropDownPatientActionPerformed
-
     private void btnViewAppointmentsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewAppointmentsMouseClicked
-        String PatientID = DropDownPatient.getSelectedItem().toString();
+        //Calls function to check which patient is logged in
+        String PatientID = ReadPatientlogin();
+        //Calls function to check appointments
         ArrayList<Appointment> Appointments = readAppointment();
         for (int i = 0; i < (Appointments.size()); i++) {
             Appointments.get(i);
+            //checks if logged in user has appointments by comparing each one with patient ID
             if (Appointments.get(i).getPatient_ID().equals(PatientID))
             {
+                //if true adds appointment to table for the user to view
                 DefaultTableModel model = (DefaultTableModel)tableRatings.getModel();
                 model.addRow(new Object[] {Appointments.get(i).getDoctor_ID(),Appointments.get(i).getPatient_ID(),Appointments.get(i).getDates() });
             }
@@ -334,7 +300,6 @@ public class ViewAppointment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> DropDownPatient;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnViewAppointments;
     private javax.swing.JPanel jPanel4;

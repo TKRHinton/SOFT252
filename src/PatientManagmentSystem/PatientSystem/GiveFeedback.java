@@ -298,23 +298,26 @@ public class GiveFeedback extends javax.swing.JFrame {
     }//GEN-LAST:event_txtRatingActionPerformed
 
     private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
-           String DoctorID = DropDownDoctor.getSelectedItem().toString();
+        //Gets User Input and put them in strings
+        String DoctorID = DropDownDoctor.getSelectedItem().toString();
         String InputRating = txtRating.getText();
         String InputFeedback = txtFeedback.getText();
-        
+        //Put strings into Feedback object
         DoctorFeedback feedback = new DoctorFeedback(DoctorID, InputRating, InputFeedback);
-        
+        //Tries to write Feedback to Feedback text file
         try {
             newFeedback(feedback);
+            JOptionPane.showMessageDialog(null, "Feebback has been sent" );
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
-        JOptionPane.showMessageDialog(null, "Feebback has been sent" );
+        
              
     }//GEN-LAST:event_btnAddFeedbackMouseClicked
 
     private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
-          ArrayList<User> users = ReadAccountFile();
+       //puts doctor ID's into array list to add to drop down box
+        ArrayList<User> users = ReadAccountFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
             if(users.get(i).getUser_ID().startsWith("D"))

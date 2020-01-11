@@ -329,6 +329,7 @@ public class PatientMain extends javax.swing.JFrame {
     private void btnTerminateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTerminateAccountMouseClicked
        
         String ID = ReadPatientlogin();
+        System.out.println(ID);
         try {
             WriteDeleteRequest(ID);
         } catch (IOException ex) {

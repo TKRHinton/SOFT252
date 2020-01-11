@@ -311,11 +311,13 @@ public class RequestAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDateActionPerformed
 
     private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
-
+       //call Readaccount file function
        ArrayList<User> users = ReadAccountFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
+            //checks if User is a doctor
             if(users.get(i).getUser_ID().startsWith("D"))
+                //if true, adds ID to drop down box
             DropDownDoctor.addItem(users.get(i).getUser_ID());
         }
 
@@ -323,27 +325,30 @@ public class RequestAppointment extends javax.swing.JFrame {
     }//GEN-LAST:event_DropDownDoctorMouseClicked
 
     private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
-
+         //call Readaccount file function
         ArrayList<Patient> users = ReadPatientFile();
         for (int i = 0; i < (users.size()); i++) {
             users.get(i);
+            //Adds ID's to Drop down box
             DropDownPatient.addItem(users.get(i).getUser_ID());
         }      
     }//GEN-LAST:event_DropDownPatientMouseClicked
 
     private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
-             String DoctorID = DropDownDoctor.getSelectedItem().toString();
+          //Gets infomation from user input
+          String DoctorID = DropDownDoctor.getSelectedItem().toString();
           String PatientID = DropDownPatient.getSelectedItem().toString();
           String InputDate = txtDate.getText();
-          
+          //Puts infomation into Appointment object
           Appointment newAppointment = new Appointment(DoctorID, PatientID, InputDate);
-        
+        //calls Add Appointment function
         try {
             AddAppointmentRequest(newAppointment);
+            JOptionPane.showMessageDialog(null, "Request has been sent");
         } catch (IOException e) {
             System.out.println("Error + e");
         }
-        JOptionPane.showMessageDialog(null, "Request has been sent");
+       
     }//GEN-LAST:event_btnAddFeedbackMouseClicked
 
     /**

@@ -46,8 +46,6 @@ public class ViewPerscription extends javax.swing.JFrame {
         btnLogout1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePer = new javax.swing.JTable();
-        DropDownPatient = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         btnViewPer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -125,20 +123,6 @@ public class ViewPerscription extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablePer);
 
-        DropDownPatient.setBackground(new java.awt.Color(46, 134, 222));
-        DropDownPatient.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        DropDownPatient.setForeground(new java.awt.Color(255, 255, 255));
-        DropDownPatient.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DropDownPatientMouseClicked(evt);
-            }
-        });
-
-        jLabel8.setBackground(new java.awt.Color(236, 240, 241));
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Patient ID:");
-
         btnViewPer.setBackground(new java.awt.Color(46, 134, 222));
         btnViewPer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnViewPer.setForeground(new java.awt.Color(255, 255, 255));
@@ -160,40 +144,29 @@ public class ViewPerscription extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(btnViewPer, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblCreator))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(153, 153, 153)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnViewPer, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(18, 18, 18)
-                                .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblCreator))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(DropDownPatient, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(btnViewPer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(65, 65, 65)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(btnViewPer, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreator))
@@ -275,12 +248,16 @@ public class ViewPerscription extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogout1ActionPerformed
 
     private void btnViewPerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnViewPerMouseClicked
-        String PatientID = DropDownPatient.getSelectedItem().toString();
+         //Calls function to check which patient is logged in
+        String PatientID = ReadPatientlogin();
+         //Calls function to get Perscription into an array list
         ArrayList<Perscription> Perscription = readPerscription();
         for (int i = 0; i < (Perscription.size()); i++) {
             Perscription.get(i);
+            //checks if logged in user has a perscription by comparing each one with patient ID
             if (Perscription.get(i).getPatient_ID().equals(PatientID))
             {
+                //if true adds Perscription to table for the user to view
                DefaultTableModel model = (DefaultTableModel)tablePer.getModel();
                   model.addRow(new Object[] {Perscription.get(i).getDoctor_ID(),Perscription.get(i).getPatient_ID(),Perscription.get(i).getDoctorNotes()
                           ,Perscription.get(i).getMedicine(),Perscription.get(i).getQuantity(),Perscription.get(i).getDosage() });
@@ -291,19 +268,6 @@ public class ViewPerscription extends javax.swing.JFrame {
     private void btnViewPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPerActionPerformed
 
     }//GEN-LAST:event_btnViewPerActionPerformed
-
-    private void DropDownPatientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownPatientMouseClicked
-        ArrayList<Patient> users = ReadPatientFile();
-        for (int i = 0; i < (users.size()); i++) {
-            users.get(i);
-            DropDownPatient.addItem(users.get(i).getUser_ID());
-        }     
-
-
-
-
-        
-    }//GEN-LAST:event_DropDownPatientMouseClicked
 
     /**
      * @param args the command line arguments
@@ -342,10 +306,8 @@ public class ViewPerscription extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> DropDownPatient;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JButton btnViewPer;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
