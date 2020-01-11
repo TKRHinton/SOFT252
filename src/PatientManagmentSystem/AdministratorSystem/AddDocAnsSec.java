@@ -292,7 +292,7 @@ public class AddDocAnsSec extends javax.swing.JFrame {
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
 
           String ID = ("S");
-        
+        //Checks to See if admin selected Doctor or Secrectary and generates ID
           if (RadioDoctor.isSelected())
           {
               ID = GenerateID("D"); 
@@ -301,19 +301,22 @@ public class AddDocAnsSec extends javax.swing.JFrame {
           {
               ID = GenerateID("S"); 
           }
-          
+          //get input values
         String InputName = txtName.getText();
         String InputAddress = txtAddress.getText();
         String InputPassword = txtPassword.getText();
         
+        //Creates A new user object
         User user = new User(ID,InputName,InputAddress,InputPassword);
         
+        //Trys to write new user in text file
         try {
             newUser(user);
+            JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
         } catch (IOException ex) {
-            Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error:" + ex );
         }   
-        JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
+              
         txtName.setText("");
         txtAddress.setText("");
         txtPassword.setText("");

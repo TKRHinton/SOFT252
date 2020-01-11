@@ -300,21 +300,22 @@ public class AdminAccount extends javax.swing.JFrame {
 
     private void btnCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateAccountMouseClicked
         
-        
+        //Generates ID
         String ID = GenerateID("A");   
-        
+         //get input values
         String InputName = txtName.getText();
         String InputAddress = txtAddress.getText();
         String InputPassword = txtPassword.getText();
-        
+        //Creates A new user object
         User Admin = new User(ID,InputName,InputAddress,InputPassword);
-        
+        //Trys to write new user in text file
         try {
             newUser(Admin);
+            JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
-        JOptionPane.showMessageDialog(null, "Admin has been added");
+       
         txtName.setText("");
         txtAddress.setText("");
         txtPassword.setText("");

@@ -246,25 +246,29 @@ public class RemoveDocAndSec extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void DropDownAccountsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownAccountsMouseClicked
-                        ArrayList<User> users = ReadAccountFile();
+            //Goes Through Accounts file and selelcts users with a doctor ID
+            ArrayList<User> users = ReadAccountFile();
               for (int i = 0; i < (users.size()); i++) {
                   users.get(i);
                 if(users.get(i).getUser_ID().startsWith("D") ||  users.get(i).getUser_ID().startsWith("S"))
-                DropDownAccounts.addItem(users.get(i).getUser_ID());
+                    //Puts Doctor ID in Drop Down box
+                    DropDownAccounts.addItem(users.get(i).getUser_ID());
               }
     }//GEN-LAST:event_DropDownAccountsMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
-
+        //Grabs Selected ID
         String selectedID = DropDownAccounts.getSelectedItem().toString();
         
+        //Tries to Deelte User calling Delete Function
         try {
             DeleteUser(selectedID);
+            JOptionPane.showMessageDialog(null, "User has Been Removed");
         } catch (IOException ex) {
             Logger.getLogger(RemoveDocAndSec.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-                JOptionPane.showMessageDialog(null, "User has Been Removed");
+                
 
         
         

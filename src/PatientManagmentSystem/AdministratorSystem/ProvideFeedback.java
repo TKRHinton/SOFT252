@@ -7,8 +7,11 @@ package PatientManagmentSystem.AdministratorSystem;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import PatientManagmentSystem.System.DoctorFeedback;
+import PatientManagmentSystem.Users.User;
+import static PatientManagmentSystem.Utility.ReadAccountFile;
 import static PatientManagmentSystem.Utility.newFeedback;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -42,7 +45,6 @@ public class ProvideFeedback extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnCreateAccount = new javax.swing.JButton();
-        btnLogout = new javax.swing.JButton();
         lblCreator = new javax.swing.JLabel();
         txtRating = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -51,8 +53,8 @@ public class ProvideFeedback extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtFeedBack = new javax.swing.JTextArea();
         btnLogout1 = new javax.swing.JButton();
-        txtID = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        DropDownDoctor = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -134,22 +136,6 @@ public class ProvideFeedback extends javax.swing.JFrame {
             }
         });
 
-        btnLogout.setBackground(new java.awt.Color(238, 82, 83));
-        btnLogout.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogout.setText("Back");
-        btnLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnLogoutMouseClicked(evt);
-            }
-        });
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
-            }
-        });
-
         lblCreator.setFont(new java.awt.Font("Tw Cen MT", 2, 14)); // NOI18N
         lblCreator.setForeground(new java.awt.Color(255, 255, 255));
         lblCreator.setText("Thomas Hinton - 10612662");
@@ -199,19 +185,24 @@ public class ProvideFeedback extends javax.swing.JFrame {
             }
         });
 
-        txtID.setBackground(new java.awt.Color(39, 60, 117));
-        txtID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtID.setForeground(new java.awt.Color(72, 219, 251));
-        txtID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIDActionPerformed(evt);
-            }
-        });
-
         jLabel7.setBackground(new java.awt.Color(236, 240, 241));
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Rating:");
+
+        DropDownDoctor.setBackground(new java.awt.Color(46, 134, 222));
+        DropDownDoctor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        DropDownDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        DropDownDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DropDownDoctorMouseClicked(evt);
+            }
+        });
+        DropDownDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DropDownDoctorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -220,9 +211,7 @@ public class ProvideFeedback extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCreator))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,14 +224,14 @@ public class ProvideFeedback extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)
-                                    .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(DropDownDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 216, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -253,8 +242,8 @@ public class ProvideFeedback extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(DropDownDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
@@ -264,12 +253,10 @@ public class ProvideFeedback extends javax.swing.JFrame {
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCreateAccount, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCreator, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(96, 96, 96)
+                .addComponent(lblCreator)
                 .addContainerGap())
         );
 
@@ -285,8 +272,7 @@ public class ProvideFeedback extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -303,19 +289,6 @@ public class ProvideFeedback extends javax.swing.JFrame {
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
 
     }//GEN-LAST:event_btnCreateAccountActionPerformed
-
-    private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
-        AdminMain form = new AdminMain();
-        form.setVisible(true);
-        form.pack();
-        form.setLocationRelativeTo(null);
-        form.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-    }//GEN-LAST:event_btnLogoutMouseClicked
-
-    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLogoutActionPerformed
 
     private void txtRatingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRatingActionPerformed
         // TODO add your handling code here:
@@ -335,20 +308,20 @@ public class ProvideFeedback extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogout1ActionPerformed
 
     private void btnCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateAccountMouseClicked
-
-        String InputID = txtID.getText();
+        //get input values
+        String InputID = DropDownDoctor.getSelectedItem().toString();
         String InputRating = txtRating.getText();
         String InputFeedback = txtFeedBack.getText();
         
+        //Creates A new user object
         DoctorFeedback feedback = new DoctorFeedback(InputID, InputRating, InputFeedback);
-        
+        //Trys to write new feedback in text file
         try {
             newFeedback(feedback);
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
         }   
-        JOptionPane.showMessageDialog(null, "User has Been Removed");
-        txtID.setText("");
+        JOptionPane.showMessageDialog(null, "Feedback has been Submited");
         txtRating.setText("");
         txtFeedBack.setText("");
 
@@ -356,9 +329,19 @@ public class ProvideFeedback extends javax.swing.JFrame {
     
     }//GEN-LAST:event_btnCreateAccountMouseClicked
 
-    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtIDActionPerformed
+    private void DropDownDoctorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DropDownDoctorMouseClicked
+        //Goes Through Accounts file and selelcts users with a doctor ID
+        ArrayList<User> users = ReadAccountFile();
+        for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            if(users.get(i).getUser_ID().startsWith("D"))
+            DropDownDoctor.addItem(users.get(i).getUser_ID());
+        }
+    }//GEN-LAST:event_DropDownDoctorMouseClicked
+
+    private void DropDownDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DropDownDoctorActionPerformed
+
+    }//GEN-LAST:event_DropDownDoctorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,8 +379,8 @@ public class ProvideFeedback extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> DropDownDoctor;
     private javax.swing.JButton btnCreateAccount;
-    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnLogout1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
@@ -412,7 +395,6 @@ public class ProvideFeedback extends javax.swing.JFrame {
     private javax.swing.JLabel lblMin;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextArea txtFeedBack;
-    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtRating;
     // End of variables declaration//GEN-END:variables
 }
