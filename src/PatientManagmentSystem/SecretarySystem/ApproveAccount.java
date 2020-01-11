@@ -5,6 +5,7 @@
  */
 package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.System.AccountRequest;
+import static PatientManagmentSystem.System.AccountRequest.DeleteAccountRequest;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.DeleteUser;
@@ -204,15 +205,12 @@ public class ApproveAccount extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCreator))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnAddFeedback1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(333, 333, 333)
-                                .addComponent(btnAddFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAddFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnAddFeedback1)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(482, 482, 482))
         );
@@ -223,13 +221,13 @@ public class ApproveAccount extends javax.swing.JFrame {
                 .addComponent(btnAddFeedback1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
+                .addGap(41, 41, 41)
+                .addComponent(btnAddFeedback)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCreator))
-                .addGap(18, 18, 18)
-                .addComponent(btnAddFeedback)
-                .addGap(43, 43, 43))
+                .addGap(92, 92, 92))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -246,8 +244,7 @@ public class ApproveAccount extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -295,8 +292,9 @@ public class ApproveAccount extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddFeedback1ActionPerformed
 
     private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
+
         
-            DefaultTableModel model = (DefaultTableModel)tableRequests.getModel();
+        DefaultTableModel model = (DefaultTableModel)tableRequests.getModel();
         
         int selectedRowIndex = tableRequests.getSelectedRow();
         
@@ -317,6 +315,24 @@ public class ApproveAccount extends javax.swing.JFrame {
              
         try {
             newPatient(newpatient);
+            
+             //calls function to delete request
+            DeleteAccountRequest(PatientName);
+            
+            //resets table
+            tableRequests.setModel(new DefaultTableModel(null,new String[]{ "Patient Name", "Patient Address"}));
+            
+            //generates table again with new request accounts data
+             ArrayList<AccountRequest> users = readAccountRequest();
+              for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            model = (DefaultTableModel)tableRequests.getModel();
+            model.addRow(new Object[] {users.get(i).getPatientName(),users.get(i).getPatientAddress()});
+        }
+            
+            
+            
+            JOptionPane.showMessageDialog(null, "New Account Has been created \n ID :" + ID + "\n Password: " + Password );
         } catch (IOException ex) {
             Logger.getLogger(ApproveAccount.class.getName()).log(Level.SEVERE, null, ex);
         }

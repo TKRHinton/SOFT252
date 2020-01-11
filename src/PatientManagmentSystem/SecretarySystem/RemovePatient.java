@@ -7,6 +7,8 @@ package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.System.Appointment;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.AddAppointment;
+import static PatientManagmentSystem.Utility.DeleteDeleteRequest;
+import static PatientManagmentSystem.Utility.DeletePatient;
 import static PatientManagmentSystem.Utility.ReadDeleteRequest;
 import static PatientManagmentSystem.Utility.readAppointmentRequest;
 import java.io.IOException;
@@ -288,10 +290,26 @@ public class RemovePatient extends javax.swing.JFrame {
         
         String PatientID = tableRequests.getValueAt(selectedRowIndex,0).toString();
         
-         User newUser = new User(PatientID);
         
         try {
-            DeleteUser(newUser.toString());
+            DeletePatient(PatientID);
+            
+            DeleteDeleteRequest(PatientID);
+            
+              //resets table
+            tableRequests.setModel(new DefaultTableModel(null,new String[]{ "User ID"}));
+            
+             ArrayList<User> users = ReadDeleteRequest();
+             for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+            
+             model = (DefaultTableModel)tableRequests.getModel();
+            model.addRow(new Object[] {users.get(i).getUser_ID()});
+            
+        }
+            
+            
+            
         } catch (IOException e) {
             System.out.println("Error + e");
         }

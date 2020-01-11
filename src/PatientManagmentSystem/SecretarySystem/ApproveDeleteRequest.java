@@ -174,7 +174,7 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
         btnAddFeedback1.setBackground(new java.awt.Color(46, 134, 222));
         btnAddFeedback1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAddFeedback1.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddFeedback1.setText("Click Here to View Requests");
+        btnAddFeedback1.setText("Click Here to View Patients");
         btnAddFeedback1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAddFeedback1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -292,10 +292,25 @@ public class ApproveDeleteRequest extends javax.swing.JFrame {
         
         String PatientID = tableRequests.getValueAt(selectedRowIndex,0).toString();
         
-         User newUser = new User(PatientID);
         
         try {
-            DeletePatient(newUser.toString());
+            DeletePatient(PatientID);
+            
+               //resets table
+            tableRequests.setModel(new DefaultTableModel(null,new String[]{ "User ID", "User Name", "User Address", "Password", "Age", "Gender"}));
+            
+             ArrayList<Patient> users = ReadPatientFile();
+            for (int i = 0; i < (users.size()); i++) {
+            users.get(i);
+
+            model = (DefaultTableModel)tableRequests.getModel();
+            model.addRow(new Object[] {users.get(i).getUser_ID(),users.get(i).getName(),users.get(i).getAddress(),users.get(i).getPassword(),users.get(i).getAge(),users.get(i).getGender()});
+
+           
+        }
+             JOptionPane.showMessageDialog(null, "Patient Account Hass Been Deleted ");
+            
+            
         } catch (IOException e) {
             System.out.println("Error + e");
         }

@@ -246,19 +246,19 @@ public class Utility {
          public static void DeletePatient(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
-            File oldFile = new File("accounts.txt");
+            File oldFile = new File("accountsPatient.txt");
             File newFile = new File(tempFile);
             
             String id = "Error"; String password = "Error"; String name = "Error"; String address = "Error"; String age = "Error"; String gender = "error";
             
             
              try  {
-                 FileWriter writer = new FileWriter(tempFile, true);
+                 FileWriter writer = new FileWriter(tempFile, false);
                  BufferedWriter bwrite = new BufferedWriter(writer);
                  PrintWriter pwrite = new PrintWriter(bwrite);
                  
                  
-                 FileReader fread = new FileReader("accounts.txt");
+                 FileReader fread = new FileReader("accountsPatient.txt");
                  BufferedReader bread = new BufferedReader(fread);
            
               
@@ -270,7 +270,6 @@ public class Utility {
                  age = bread.readLine();
                  gender = bread.readLine();
              
-            
                  if(!id.equals(SelectedUser))
                  {
                       writer.write(id);
@@ -291,7 +290,7 @@ public class Utility {
                  pwrite.flush();
                  pwrite.close();
                  oldFile.delete();
-                 File dump = new File("accounts.txt");
+                 File dump = new File("accountsPatient.txt");
                  newFile.renameTo(dump);}
              
              catch(Exception e)
@@ -679,6 +678,52 @@ public class Utility {
                 }
         
         return (ID);
+        }
+        
+        
+           public static void DeleteDeleteRequest(String SelectedUser) throws IOException
+        {
+            String tempFile = "temp.txt";
+            File oldFile = new File("DeleteRequest.txt");
+            File newFile = new File(tempFile);
+            
+            String PatientID = "Error"; 
+            
+            
+             try  {
+                 FileWriter writer = new FileWriter(tempFile, false);
+                 BufferedWriter bwrite = new BufferedWriter(writer);
+                 PrintWriter pwrite = new PrintWriter(bwrite);
+                 
+                 
+                 FileReader fread = new FileReader("DeleteRequest.txt");
+                 BufferedReader bread = new BufferedReader(fread);
+           
+                 
+                 while ((PatientID = bread.readLine()) != null) { 
+                     System.out.println(PatientID);
+
+             
+            
+                 if(!PatientID.equals(SelectedUser))
+                 {
+                      writer.write(PatientID);
+                      writer.write(System.getProperty("line.separator"));
+
+                                                    
+                    }
+                 }
+                 fread.close();
+                 pwrite.flush();
+                 pwrite.close();
+                 oldFile.delete();
+                 File dump = new File("DeleteRequest.txt");
+                 newFile.renameTo(dump);}
+             
+             catch(Exception e)
+             {
+                 JOptionPane.showMessageDialog(null, "Error" + e);
+             }
         }
         
        

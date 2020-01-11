@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.SecretarySystem;
+import static PatientManagmentSystem.System.AccountRequest.DeleteAccountRequest;
 import PatientManagmentSystem.System.Appointment;
+import static PatientManagmentSystem.System.Appointment.DeleteAppointmentRequest;
 import static PatientManagmentSystem.Utility.AddAppointment;
 import static PatientManagmentSystem.Utility.readAppointment;
 import static PatientManagmentSystem.Utility.readAppointmentRequest;
@@ -138,14 +140,7 @@ public class AppointmentRequests extends javax.swing.JFrame {
         tableRequests.setForeground(new java.awt.Color(255, 255, 255));
         tableRequests.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Patient ID", "Doctor ID", "Date"
@@ -202,18 +197,18 @@ public class AppointmentRequests extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btnLogout1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblCreator))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(47, 47, 47)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddFeedback))
-                        .addGap(0, 10, Short.MAX_VALUE)))
+                        .addGap(0, 8, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
@@ -290,6 +285,7 @@ public class AppointmentRequests extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfirmActionPerformed
 
     private void btnAddFeedbackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddFeedbackMouseClicked
+        //generates table of requests
         ArrayList<Appointment> Appointments = readAppointmentRequest();
         for (int i = 0; i < (Appointments.size()); i++) {
             Appointments.get(i);
@@ -306,15 +302,33 @@ public class AppointmentRequests extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel)tableRequests.getModel();
         
         int selectedRowIndex = tableRequests.getSelectedRow();
-        
-        String PatientID = tableRequests.getValueAt(selectedRowIndex,0).toString();
-        String DoctorID = tableRequests.getValueAt(selectedRowIndex,1).toString();
+        //gets the values the user selected from the table
+        String DoctorID = tableRequests.getValueAt(selectedRowIndex,0).toString();
+        String PatientID = tableRequests.getValueAt(selectedRowIndex,1).toString();
         String Date = tableRequests.getValueAt(selectedRowIndex,2).toString();
         
+        //makes the values a Appointment object
          Appointment newAppointment = new Appointment(DoctorID, PatientID, Date);
         
         try {
+            //Calls function to Write requests to appointment data
             AddAppointment(newAppointment);
+            //calls function to delete request
+            DeleteAppointmentRequest(PatientID);
+            
+            //resets table
+            tableRequests.setModel(new DefaultTableModel(null,new String[]{ "Patient ID", "Doctor ID", "Date"}));
+            
+            
+            //generates table again with new request appointments data
+             ArrayList<Appointment> Appointments = readAppointmentRequest();
+             for (int i = 0; i < (Appointments.size()); i++) {
+            Appointments.get(i);
+            
+             model = (DefaultTableModel)tableRequests.getModel();
+            model.addRow(new Object[] {Appointments.get(i).getDoctor_ID(),Appointments.get(i).getPatient_ID(),Appointments.get(i).getDates() });}
+                        
+          JOptionPane.showMessageDialog(null, "Appointment Has Been Added" );
         } catch (IOException e) {
             System.out.println("Error + e");
         }
