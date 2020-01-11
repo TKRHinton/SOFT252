@@ -609,8 +609,7 @@ public class Utility {
      
       public static void WritePatientlogin (String ID) throws IOException
      {
-           try (FileWriter writer = new FileWriter("AccountRequest.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
+           try (FileWriter writer = new FileWriter("Logged.txt", false)) {
             writer.write(ID );
 
              writer.close();
@@ -641,14 +640,15 @@ public class Utility {
             FileReader fread = new FileReader("DeleteRequest.txt");
             BufferedReader bread = new BufferedReader(fread);          
 
-            bread.close();
-            fread.close();        
+             
               while ((ID = bread.readLine()) != null) {
 
                 
                 User user = new User(ID);
                 newDelete.add(user);                
             }
+            bread.close();
+            fread.close();     
         }      
         catch(Exception error)
                 {
