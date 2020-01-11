@@ -112,7 +112,7 @@ public class Utility {
           {
               ArrayList<Patient> users = ReadPatientFile();
               User user = new User();
-              for (int i = 0; i < (users.size()-1); i++) {
+              for (int i = 0; i < (users.size()); i++) {
                   user = users.get(i);
                   if (user.getUser_ID().equals(username) && user.getPassword().equals(password))
                   {
@@ -125,7 +125,7 @@ public class Utility {
           {
                   ArrayList<User> users = ReadAccountFile();
               User user = new User();
-              for (int i = 0; i < (users.size()-1); i++) {
+              for (int i = 0; i < (users.size()); i++) {
                   user = users.get(i);
                  // System.out.println(user.getPassword());
                  // System.out.println(password);

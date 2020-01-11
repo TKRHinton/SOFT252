@@ -287,10 +287,11 @@ public class CreateAppointment extends javax.swing.JFrame {
         
         try {
             AddAppointment(newAppointment);
+            JOptionPane.showMessageDialog(null, "Appointment has been added");
         } catch (IOException e) {
             System.out.println("Error + e");
         }
-        JOptionPane.showMessageDialog(null, "Appointment has been added");
+        
     }//GEN-LAST:event_btnCreateAppointmentActionPerformed
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
