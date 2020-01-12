@@ -2,6 +2,10 @@
 
 The application Has 4 different area including Patient, Admin,Doctor, and secretary. Here Are All the data that is included when the application starts
 
+When you select using the drop down box you first have to click on the drop box (Not the arrow) to populate the drop down box
+
+![](Dropdown.PNG)
+
 The User Names and password for the Application
 Patient: 
 * Username: P2020 | Password: 123
