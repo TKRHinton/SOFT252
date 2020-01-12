@@ -143,16 +143,16 @@ public class Utility {
         }
       
         
-      public static String GenerateID(String userLetter)
-      {
-          Random ran = new Random();
+     // public static String GenerateID(String userLetter)
+     // {
+     //     Random ran = new Random();
           
-          Integer ID = ran.nextInt(9000) + 1000;
+     //     Integer ID = ran.nextInt(9000) + 1000;
           
-          String NewID = userLetter + ID.toString();       
+     //     String NewID = userLetter + ID.toString();       
           
-          return NewID;
-      }
+      //    return NewID;
+     // }
       
       
       public static void newUser(User newuser) throws IOException

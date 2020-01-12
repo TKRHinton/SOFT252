@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.GeneratorStrategy.GenerateDoctorID;
+import PatientManagmentSystem.GeneratorStrategy.GenerateSecretaryID;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.GenerateID;
+//import static PatientManagmentSystem.Utility.GenerateID;
 import static PatientManagmentSystem.Utility.newUser;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -290,16 +292,18 @@ public class AddDocAnsSec extends javax.swing.JFrame {
     }//GEN-LAST:event_lblMinMouseClicked
 
     private void btnCreateAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateAccountActionPerformed
-
+          User users = new User();
           String ID = ("S");
         //Checks to See if admin selected Doctor or Secrectary and generates ID
           if (RadioDoctor.isSelected())
           {
-              ID = GenerateID("D"); 
+              users.setGenerateType(new GenerateDoctorID());
+              ID = users.GenerateID();
           }
           else if (RadioSec.isSelected())
           {
-              ID = GenerateID("S"); 
+              users.setGenerateType(new GenerateSecretaryID());
+              ID = users.GenerateID(); 
           }
           //get input values
         String InputName = txtName.getText();

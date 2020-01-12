@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.AdministratorSystem;
+import PatientManagmentSystem.GeneratorStrategy.GenerateAdminID;
 import PatientManagmentSystem.Users.Administrator;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.GenerateID;
+//import static PatientManagmentSystem.Utility.GenerateID;
 import static PatientManagmentSystem.Utility.newUser;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -301,7 +302,9 @@ public class AdminAccount extends javax.swing.JFrame {
     private void btnCreateAccountMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateAccountMouseClicked
         
         //Generates ID
-        String ID = GenerateID("A");   
+        User users = new User();
+        users.setGenerateType(new GenerateAdminID());
+        String ID = users.GenerateID();
          //get input values
         String InputName = txtName.getText();
         String InputAddress = txtAddress.getText();

@@ -4,13 +4,15 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem.SecretarySystem;
+import PatientManagmentSystem.GeneratorStrategy.GeneratePassword;
+import PatientManagmentSystem.GeneratorStrategy.GeneratePatientID;
 import PatientManagmentSystem.System.AccountRequest;
 import static PatientManagmentSystem.System.AccountRequest.DeleteAccountRequest;
 import static PatientManagmentSystem.System.AccountRequest.readAccountRequest;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.DeleteUser;
-import static PatientManagmentSystem.Utility.GenerateID;
+//import static PatientManagmentSystem.Utility.GenerateID;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
 import static PatientManagmentSystem.Utility.newPatient;
 import static PatientManagmentSystem.Utility.newUser;
@@ -303,12 +305,15 @@ public class ApproveAccount extends javax.swing.JFrame {
 
 
         
-        
-        String ID = GenerateID("P"); 
-        String Password = "123";
+        User user = new User();
+        user.setGenerateType(new GeneratePatientID());
+        String ID = user.GenerateID();
+               // GenerateID("P"); 
+        user.setGenerateType(new GeneratePassword());
+        String Password = user.GenerateID();
         String age = "22";
         String gender = "male";
-            ID = GenerateID("P");
+          //  ID = GenerateID("P");
             
              Patient newpatient = new Patient(ID,PatientName,PatientAddress,Password,age,gender);
              System.out.println(newpatient.getUser_ID());

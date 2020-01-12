@@ -5,15 +5,29 @@
  */
 package PatientManagmentSystem.Users;
 
+import PatientManagmentSystem.GeneratorStrategy.GeneratorInterface;
+
 /**
  *
  * @author thinton
  */
 public class User {
-        private String user_ID;
+    private String user_ID;
     private String Name; 
     private String Address;
     private String Password;
+    
+    public GeneratorInterface GenerateType;
+    
+    public String GenerateID()
+    {
+        return GenerateType.Generate();
+    }
+    
+    public void setGenerateType(GeneratorInterface newGenerateType)
+    {
+        GenerateType = newGenerateType;
+    }
     
     public User()
     {
