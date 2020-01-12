@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -104,6 +105,92 @@ public class Appointment {
                  JOptionPane.showMessageDialog(null, "Error" + e);
              }
         }
+      
+      
+       public static ArrayList<Appointment> readAppointment()
+    {
+        ArrayList<Appointment> newAppointment = new ArrayList<>();
+        
+        
+          try
+        {
+            FileReader fread = new FileReader("Appointment.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String id = "1";
+
+            while ((id = bread.readLine()) != null) {
+                String  idpatient = bread.readLine();
+                String date = bread.readLine();
+                
+                Appointment user = new Appointment(id,idpatient,date);
+                newAppointment.add(user);                
+            }
+            bread.close();
+            fread.close();                         
+        }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (newAppointment);
+        }
+        
+     
+    public static void AddAppointment( Appointment newAppointment) throws IOException
+    {
+         try (FileWriter writer = new FileWriter("Appointment.txt", true)) {
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getDoctor_ID() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getPatient_ID());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getDates());
+            writer.close();
+        }      
+    }
+               
+     public static void AddAppointmentRequest( Appointment newAppointment) throws IOException
+    {
+         try (FileWriter writer = new FileWriter("RequestAppointment.txt", true)) {
+           // writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getDoctor_ID() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getPatient_ID());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newAppointment.getDates());
+            writer.close();
+        }     
+    }
+     
+       public static ArrayList<Appointment> readAppointmentRequest()
+    {
+        ArrayList<Appointment> newAppointment = new ArrayList<>();
+             
+          try
+        {
+            FileReader fread = new FileReader("RequestAppointment.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String id = "1";
+
+            while ((id = bread.readLine()) != null) {
+                String  idpatient = bread.readLine();
+                String date = bread.readLine();
+                
+                Appointment user = new Appointment(id,idpatient,date);
+                newAppointment.add(user);                
+            }
+            bread.close();
+            fread.close();                         
+        }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (newAppointment);}
     
     
 }

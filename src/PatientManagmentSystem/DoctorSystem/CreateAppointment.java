@@ -6,9 +6,9 @@
 package PatientManagmentSystem.DoctorSystem;
 
 import PatientManagmentSystem.System.Appointment;
+import static PatientManagmentSystem.System.Appointment.AddAppointment;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.AddAppointment;
 import static PatientManagmentSystem.Utility.ReadAccountFile;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
 import java.io.IOException;

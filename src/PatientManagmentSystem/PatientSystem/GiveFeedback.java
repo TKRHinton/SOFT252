@@ -6,9 +6,9 @@
 package PatientManagmentSystem.PatientSystem;
 import PatientManagmentSystem.AdministratorSystem.AdminAccount;
 import PatientManagmentSystem.System.DoctorFeedback;
+import static PatientManagmentSystem.System.DoctorFeedback.newFeedback;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.ReadAccountFile;
-import static PatientManagmentSystem.Utility.newFeedback;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;

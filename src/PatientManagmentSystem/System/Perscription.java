@@ -5,6 +5,12 @@
  */
 package PatientManagmentSystem.System;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author Theon
@@ -76,6 +82,61 @@ public class Perscription {
     public void setDosage(String Dosage) {
         this.Dosage = Dosage;
     }
+    
+     public static void AddPersrciption( Perscription newPersrciption) throws IOException
+    {
+         try (FileWriter writer = new FileWriter("Perscription.txt", true)) {
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getDoctor_ID() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getPatient_ID());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getDoctorNotes());
+             writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getMedicine());
+             writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getQuantity());
+             writer.write(System.getProperty("line.separator"));
+            writer.write(newPersrciption.getDosage());
+            writer.close();
+        }
+      
+    }
+     
+      public static ArrayList<Perscription> readPerscription()
+     {
+           ArrayList<Perscription> newPerscription = new ArrayList<>();
+        
+        
+          try
+        {
+            FileReader fread = new FileReader("Perscription.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String id = "1";
+
+            while ((id = bread.readLine()) != null) {
+                String  idpatient = bread.readLine();
+                String notes = bread.readLine();
+                String medicine = bread.readLine();
+                String quantity = bread.readLine();
+                String dosage = bread.readLine();
+                
+                
+                Perscription user = new Perscription(id,idpatient,notes,medicine,quantity,dosage);
+                newPerscription.add(user);  
+
+            }
+            bread.close();
+            fread.close();                         
+        }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (newPerscription);
+     }
     
     
     

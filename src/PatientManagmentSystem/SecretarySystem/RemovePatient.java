@@ -6,11 +6,9 @@
 package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.System.Appointment;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.AddAppointment;
 import static PatientManagmentSystem.Utility.DeleteDeleteRequest;
 import static PatientManagmentSystem.Utility.DeletePatient;
 import static PatientManagmentSystem.Utility.ReadDeleteRequest;
-import static PatientManagmentSystem.Utility.readAppointmentRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

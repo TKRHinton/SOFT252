@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package PatientManagmentSystem;
+import static PatientManagmentSystem.System.AccountRequest.newAccountRequest;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.newAccountRequest;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
@@ -293,6 +293,7 @@ public class RegisterPage extends javax.swing.JFrame {
         
         try {
             newAccountRequest(newRequest);
+             JOptionPane.showMessageDialog(null, "New Account Request Has been created ");
         } catch (IOException e) {
             System.out.println("Error + e");
         }

@@ -7,7 +7,7 @@ package PatientManagmentSystem.DoctorSystem;
 
 import PatientManagmentSystem.System.Appointment;
 import PatientManagmentSystem.System.Medicine;
-import static PatientManagmentSystem.Utility.AddMedicineRequest;
+import static PatientManagmentSystem.System.Medicine.AddMedicineRequest;
 import java.io.IOException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

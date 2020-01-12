@@ -5,8 +5,8 @@
  */
 package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.System.Medicine;
-import static PatientManagmentSystem.Utility.AddMedicine;
-import static PatientManagmentSystem.Utility.readMedicineRequest;
+import static PatientManagmentSystem.System.Medicine.AddMedicine;
+import static PatientManagmentSystem.System.Medicine.readMedicineRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

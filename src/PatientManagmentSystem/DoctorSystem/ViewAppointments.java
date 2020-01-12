@@ -6,9 +6,9 @@
 package PatientManagmentSystem.DoctorSystem;
 
 import PatientManagmentSystem.System.Appointment;
+import static PatientManagmentSystem.System.Appointment.readAppointment;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.ReadAccountFile;
-import static PatientManagmentSystem.Utility.readAppointment;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;

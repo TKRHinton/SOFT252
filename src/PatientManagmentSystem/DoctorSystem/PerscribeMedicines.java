@@ -7,14 +7,13 @@ package PatientManagmentSystem.DoctorSystem;
 
 import PatientManagmentSystem.AdministratorSystem.AdminAccount;
 import PatientManagmentSystem.System.Medicine;
+import static PatientManagmentSystem.System.Medicine.readMedicine;
 import PatientManagmentSystem.System.Perscription;
+import static PatientManagmentSystem.System.Perscription.AddPersrciption;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
-import static PatientManagmentSystem.Utility.AddMedicine;
-import static PatientManagmentSystem.Utility.AddPersrciption;
 import static PatientManagmentSystem.Utility.ReadAccountFile;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
-import static PatientManagmentSystem.Utility.readMedicine;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;

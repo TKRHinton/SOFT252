@@ -5,10 +5,10 @@
  */
 package PatientManagmentSystem.PatientSystem;
 import PatientManagmentSystem.System.Perscription;
+import static PatientManagmentSystem.System.Perscription.readPerscription;
 import PatientManagmentSystem.Users.Patient;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
 import static PatientManagmentSystem.Utility.ReadPatientlogin;
-import static PatientManagmentSystem.Utility.readPerscription;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;

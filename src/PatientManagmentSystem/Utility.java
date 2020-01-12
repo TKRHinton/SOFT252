@@ -142,8 +142,7 @@ public class Utility {
           return Correct;        
         }
       
-      
-      
+        
       public static String GenerateID(String userLetter)
       {
           Random ran = new Random();
@@ -298,314 +297,7 @@ public class Utility {
                  JOptionPane.showMessageDialog(null, "Error" + e);
              }
         }
-        
-        public static void newFeedback(DoctorFeedback newFeedback) throws IOException
-        {
-            try (FileWriter writer = new FileWriter("DoctorFeedback.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newFeedback.getDoctor_ID() );
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newFeedback.getRating());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newFeedback.getFeedbackNotes());
-            writer.close();
-        }                
-        }
-        
-        public static ArrayList<DoctorFeedback> readFeedback()
-        {
-                ArrayList<DoctorFeedback> feedback = new ArrayList<>();
-        
-        try
-        {
-            FileReader fread = new FileReader("DoctorFeedback.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String id = "1";
-
-            while ((id = bread.readLine()) != null) {
-                String  rating = bread.readLine();
-                String notes = bread.readLine();
-                
-                DoctorFeedback user = new DoctorFeedback(id,rating,notes);
-                feedback.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-      }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (feedback);
-        }
-        
-        
-    public static ArrayList<Appointment> readAppointment()
-    {
-        ArrayList<Appointment> newAppointment = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("Appointment.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String id = "1";
-
-            while ((id = bread.readLine()) != null) {
-                String  idpatient = bread.readLine();
-                String date = bread.readLine();
-                
-                Appointment user = new Appointment(id,idpatient,date);
-                newAppointment.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newAppointment);
-        }
-        
-     
-    public static void AddAppointment( Appointment newAppointment) throws IOException
-    {
-         try (FileWriter writer = new FileWriter("Appointment.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getDoctor_ID() );
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getPatient_ID());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getDates());
-            writer.close();
-        }
-      
-    }
-    
-    
-            
-     public static void AddAppointmentRequest( Appointment newAppointment) throws IOException
-    {
-         try (FileWriter writer = new FileWriter("RequestAppointment.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getDoctor_ID() );
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getPatient_ID());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newAppointment.getDates());
-            writer.close();
-        }
-      
-    }
-     
-       public static ArrayList<Appointment> readAppointmentRequest()
-    {
-        ArrayList<Appointment> newAppointment = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("RequestAppointment.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String id = "1";
-
-            while ((id = bread.readLine()) != null) {
-                String  idpatient = bread.readLine();
-                String date = bread.readLine();
-                
-                Appointment user = new Appointment(id,idpatient,date);
-                newAppointment.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newAppointment);
-        }
-    
-     public static void AddMedicine( Medicine medicine) throws IOException
-    {
-         try (FileWriter writer = new FileWriter("Medicine.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(medicine.getMedicine() );
-            writer.close();
-        }     
-    }
-          public static void AddMedicineRequest( Medicine medicine) throws IOException
-    {
-         try (FileWriter writer = new FileWriter("MedicineRequest.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(medicine.getMedicine() );
-            writer.close();
-        }     
-    }
-          
-          public static ArrayList<Medicine> readMedicine()
-    {
-        ArrayList<Medicine> newMedicine = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("Medicine.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String Med = "1";
-
-            while ((Med = bread.readLine()) != null) {
-                
-                Medicine user = new Medicine(Med);
-                newMedicine.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newMedicine);
-        }
-     
-     
-     public static ArrayList<Medicine> readMedicineRequest()
-    {
-        ArrayList<Medicine> newMedicine = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("MedicineRequest.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String Med = "1";
-
-            while ((Med = bread.readLine()) != null) {
-                
-                Medicine user = new Medicine(Med);
-                newMedicine.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newMedicine);
-        }
-     
-     public static void AddPersrciption( Perscription newPersrciption) throws IOException
-    {
-         try (FileWriter writer = new FileWriter("Perscription.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getDoctor_ID() );
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getPatient_ID());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getDoctorNotes());
-             writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getMedicine());
-             writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getQuantity());
-             writer.write(System.getProperty("line.separator"));
-            writer.write(newPersrciption.getDosage());
-            writer.close();
-        }
-      
-    }
-     
-     public static ArrayList<Perscription> readPerscription()
-     {
-           ArrayList<Perscription> newPerscription = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("Perscription.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String id = "1";
-
-            while ((id = bread.readLine()) != null) {
-                String  idpatient = bread.readLine();
-                String notes = bread.readLine();
-                String medicine = bread.readLine();
-                String quantity = bread.readLine();
-                String dosage = bread.readLine();
-                
-                
-                Perscription user = new Perscription(id,idpatient,notes,medicine,quantity,dosage);
-                newPerscription.add(user);  
-
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newPerscription);
-     }
-     
-     
-     public static void newAccountRequest (User Request) throws IOException
-     {
-           try (FileWriter writer = new FileWriter("AccountRequest.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
-            writer.write(Request.getName() );
-            writer.write(System.getProperty("line.separator"));
-            writer.write(Request.getAddress());
-             writer.close();
-           }}
-           
-           public static ArrayList<AccountRequest> readAccountRequest()
-     {
-           ArrayList<AccountRequest> newRequest = new ArrayList<>();
-        
-        
-          try
-        {
-            FileReader fread = new FileReader("AccountRequest.txt");
-            BufferedReader bread = new BufferedReader(fread);
-           
-                String name = "1";
-
-            while ((name = bread.readLine()) != null) {
-                String  Address = bread.readLine();
-                
-                
-                AccountRequest user = new AccountRequest(name,Address);
-                newRequest.add(user);                
-            }
-            bread.close();
-            fread.close();                         
-        }      
-        catch(Exception error)
-                {
-                    System.out.println("Error" + error);
-                }
-        
-        return (newRequest);
-     }
-           
-           
-     
-     
+             
       public static void WritePatientlogin (String ID) throws IOException
      {
            try (FileWriter writer = new FileWriter("Logged.txt", false)) {
@@ -614,9 +306,7 @@ public class Utility {
              writer.close();
            }
      }
-      
-      
-              
+             
        public static void WriteDeleteRequest(String ID) throws IOException
      {
            try (FileWriter writer = new FileWriter("DeleteRequest.txt", true)) {
@@ -627,7 +317,7 @@ public class Utility {
              writer.close();
            }
      }
-              
+             
                public static ArrayList<User> ReadDeleteRequest()                      
     {
         ArrayList<User> newDelete = new ArrayList<>();
@@ -679,8 +369,7 @@ public class Utility {
         
         return (ID);
         }
-        
-        
+             
            public static void DeleteDeleteRequest(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
@@ -708,9 +397,7 @@ public class Utility {
                  if(!PatientID.equals(SelectedUser))
                  {
                       writer.write(PatientID);
-                      writer.write(System.getProperty("line.separator"));
-
-                                                    
+                      writer.write(System.getProperty("line.separator"));                                                  
                     }
                  }
                  fread.close();
@@ -725,7 +412,5 @@ public class Utility {
                  JOptionPane.showMessageDialog(null, "Error" + e);
              }
         }
-        
-       
-        
+              
 }

@@ -5,6 +5,12 @@
  */
 package PatientManagmentSystem.System;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  * @author Theon
@@ -46,6 +52,48 @@ public class DoctorFeedback {
     public void setFeedbackNotes(String FeedbackNotes) {
         this.FeedbackNotes = FeedbackNotes;
     }
+    
+      public static void newFeedback(DoctorFeedback newFeedback) throws IOException
+        {
+            try (FileWriter writer = new FileWriter("DoctorFeedback.txt", true)) {
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getDoctor_ID() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getRating());
+            writer.write(System.getProperty("line.separator"));
+            writer.write(newFeedback.getFeedbackNotes());
+            writer.close();
+        }                
+        }
+        
+        public static ArrayList<DoctorFeedback> readFeedback()
+        {
+                ArrayList<DoctorFeedback> feedback = new ArrayList<>();
+        
+        try
+        {
+            FileReader fread = new FileReader("DoctorFeedback.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String id = "1";
+
+            while ((id = bread.readLine()) != null) {
+                String  rating = bread.readLine();
+                String notes = bread.readLine();
+                
+                DoctorFeedback user = new DoctorFeedback(id,rating,notes);
+                feedback.add(user);                
+            }
+            bread.close();
+            fread.close();                         
+      }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (feedback);
+        }
     
     
 }

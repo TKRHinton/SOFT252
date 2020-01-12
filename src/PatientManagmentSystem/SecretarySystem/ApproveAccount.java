@@ -6,6 +6,7 @@
 package PatientManagmentSystem.SecretarySystem;
 import PatientManagmentSystem.System.AccountRequest;
 import static PatientManagmentSystem.System.AccountRequest.DeleteAccountRequest;
+import static PatientManagmentSystem.System.AccountRequest.readAccountRequest;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.DeleteUser;
@@ -13,7 +14,6 @@ import static PatientManagmentSystem.Utility.GenerateID;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
 import static PatientManagmentSystem.Utility.newPatient;
 import static PatientManagmentSystem.Utility.newUser;
-import static PatientManagmentSystem.Utility.readAccountRequest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;

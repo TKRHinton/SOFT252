@@ -5,7 +5,7 @@
  */
 package PatientManagmentSystem.AdministratorSystem;
 import PatientManagmentSystem.System.DoctorFeedback;
-import static PatientManagmentSystem.Utility.readFeedback;
+import static PatientManagmentSystem.System.DoctorFeedback.readFeedback;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;

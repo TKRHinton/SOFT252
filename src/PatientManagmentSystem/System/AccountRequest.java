@@ -5,6 +5,7 @@
  */
 package PatientManagmentSystem.System;
 
+import PatientManagmentSystem.Users.User;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -12,6 +13,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,6 +98,44 @@ public class AccountRequest {
                  JOptionPane.showMessageDialog(null, "Error" + e);
              }
         }
+         
+              public static void newAccountRequest (User Request) throws IOException
+     {
+           try (FileWriter writer = new FileWriter("AccountRequest.txt", true)) {
+          //  writer.write(System.getProperty("line.separator"));
+            writer.write(Request.getName() );
+            writer.write(System.getProperty("line.separator"));
+            writer.write(Request.getAddress());
+             writer.close();
+           }}
+           
+           public static ArrayList<AccountRequest> readAccountRequest()
+     {
+           ArrayList<AccountRequest> newRequest = new ArrayList<>();
+             
+          try
+        {
+            FileReader fread = new FileReader("AccountRequest.txt");
+            BufferedReader bread = new BufferedReader(fread);
+           
+                String name = "1";
+
+            while ((name = bread.readLine()) != null) {
+                String  Address = bread.readLine();
+                
+                
+                AccountRequest user = new AccountRequest(name,Address);
+                newRequest.add(user);                
+            }
+            bread.close();
+            fread.close();                         
+        }      
+        catch(Exception error)
+                {
+                    System.out.println("Error" + error);
+                }
+        
+        return (newRequest);  }
     
     
 }
