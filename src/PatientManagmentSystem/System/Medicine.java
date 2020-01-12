@@ -92,16 +92,18 @@ public class Medicine {
              public static void AddMedicine( Medicine medicine) throws IOException
     {
          try (FileWriter writer = new FileWriter("Medicine.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
+            
             writer.write(medicine.getMedicine() );
+            writer.write(System.getProperty("line.separator"));
             writer.close();
         }     
     }
           public static void AddMedicineRequest( Medicine medicine) throws IOException
     {
          try (FileWriter writer = new FileWriter("MedicineRequest.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
+            
             writer.write(medicine.getMedicine() );
+            writer.write(System.getProperty("line.separator"));
             writer.close();
         }     
     }

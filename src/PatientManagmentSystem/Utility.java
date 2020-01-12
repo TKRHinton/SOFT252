@@ -44,7 +44,6 @@ public class Utility {
                 String password = bread.readLine();
                 String name = bread.readLine();
                 String address = bread.readLine();
-                System.out.println(password);
                 
                 
                 if (id.startsWith("A")) {
@@ -127,10 +126,6 @@ public class Utility {
               User user = new User();
               for (int i = 0; i < (users.size()); i++) {
                   user = users.get(i);
-                 // System.out.println(user.getPassword());
-                 // System.out.println(password);
-                 // System.out.println(username);
-                 // System.out.println(user.getUser_ID());
                 if (user.getUser_ID().equals(username) && user.getPassword().equals(password))
                   {
                       Correct = true;
@@ -141,19 +136,7 @@ public class Utility {
             JOptionPane.showMessageDialog(null, "Incorrect Password");
           return Correct;        
         }
-      
-        
-     // public static String GenerateID(String userLetter)
-     // {
-     //     Random ran = new Random();
           
-     //     Integer ID = ran.nextInt(9000) + 1000;
-          
-     //     String NewID = userLetter + ID.toString();       
-          
-      //    return NewID;
-     // }
-      
       
       public static void newUser(User newuser) throws IOException
       {              
@@ -311,8 +294,9 @@ public class Utility {
      {
            try (FileWriter writer = new FileWriter("DeleteRequest.txt", true)) {
             
-            writer.write(System.getProperty("line.separator"));
+            
             writer.write(ID);
+            writer.write(System.getProperty("line.separator"));
 
              writer.close();
            }

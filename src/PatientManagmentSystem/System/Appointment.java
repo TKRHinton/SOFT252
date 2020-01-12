@@ -141,12 +141,12 @@ public class Appointment {
     public static void AddAppointment( Appointment newAppointment) throws IOException
     {
          try (FileWriter writer = new FileWriter("Appointment.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
             writer.write(newAppointment.getDoctor_ID() );
             writer.write(System.getProperty("line.separator"));
             writer.write(newAppointment.getPatient_ID());
             writer.write(System.getProperty("line.separator"));
             writer.write(newAppointment.getDates());
+            writer.write(System.getProperty("line.separator"));
             writer.close();
         }      
     }

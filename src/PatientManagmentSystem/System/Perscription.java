@@ -86,7 +86,7 @@ public class Perscription {
      public static void AddPersrciption( Perscription newPersrciption) throws IOException
     {
          try (FileWriter writer = new FileWriter("Perscription.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
+           
             writer.write(newPersrciption.getDoctor_ID() );
             writer.write(System.getProperty("line.separator"));
             writer.write(newPersrciption.getPatient_ID());
@@ -98,6 +98,7 @@ public class Perscription {
             writer.write(newPersrciption.getQuantity());
              writer.write(System.getProperty("line.separator"));
             writer.write(newPersrciption.getDosage());
+             writer.write(System.getProperty("line.separator"));
             writer.close();
         }
       

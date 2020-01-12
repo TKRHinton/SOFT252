@@ -2,23 +2,11 @@ A2020
 123
 James
 23 James Street
-S2020
-123
-Lucy
-34 Over Road
-D2021
+D2020
 123
 John
-John Road
-D2022
+23 James Street
+S2020
 123
-Sam
-Sam Road
-A7819
-123
-Ad
-Adstreet
-A7754
-123
-Names
-Addewws
+Leah
+23 James Street

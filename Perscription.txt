@@ -1,30 +1,6 @@
 D2020
 P2020
-Hello
-HI
-5
+Look likes they need it
+Lyrica
+8
 2 Times a day
-D2021
-P2021
-12212
-Synthroid
-12
-12
-D2021
-P2021
-12212
-Synthroid
-12
-12
-D2021
-P2021
-Neeeeeeeeeeeeeds
-Crestor
-2
-Now
-TestDocID
-TestPatID
-TestNotes
-TestMedicine
-TestQuanitiy
-TestDosage

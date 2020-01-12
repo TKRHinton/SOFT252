@@ -56,12 +56,12 @@ public class DoctorFeedback {
       public static void newFeedback(DoctorFeedback newFeedback) throws IOException
         {
             try (FileWriter writer = new FileWriter("DoctorFeedback.txt", true)) {
-            writer.write(System.getProperty("line.separator"));
             writer.write(newFeedback.getDoctor_ID() );
             writer.write(System.getProperty("line.separator"));
             writer.write(newFeedback.getRating());
             writer.write(System.getProperty("line.separator"));
             writer.write(newFeedback.getFeedbackNotes());
+             writer.write(System.getProperty("line.separator"));
             writer.close();
         }                
         }

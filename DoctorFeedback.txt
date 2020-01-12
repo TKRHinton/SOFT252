@@ -1,18 +1,6 @@
 D2020
+8
+Very Good
+D2020
 5
-Very Poor
-D2021
-7
-Ammazing
-D2021
-7
-Ammazing
-D2022
-1
-qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-TestID
-TestRating
-TestNotes
-TestID
-TestRating
-TestNotes
+They were ok
