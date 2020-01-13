@@ -5,6 +5,7 @@ The application Has 4 different area including Patient, Admin,Doctor, and secret
 All the code for the application is in the src folder 
 
 UML located: src/Managment System Model/Class Diagrams/Managment System Model.cdg
+Or (PDF Version):
 
 When you select using the drop down box you first have to click on the drop box (Not the arrow) to populate the drop down box
 
@@ -13,19 +14,19 @@ When you select using the drop down box you first have to click on the drop box 
 The User Names and password for the Application
 Patient: 
 * Username: P2020 | Password: 123
-* Username: P2021 | Password: 123
-* Username: P2022 | Password: 123
-* Username: P2023 | Password: 123
+* Username: P2021 | Password: kelly111
+* Username: P2022 | Password: 12311
+* Username: P2023 | Password: 999
 
  Admin: 
 * Username: A2020 | Password: 123
 
 Doctor:
-* Username: D2020 | Password: 123
-* Username: D2021 | Password: 123
+* Username: D2020 | Password: 234
+* Username: D2021 | Password: L123
 
 Secretary: 
-* Username: S2020 | Password: 123
+* Username: S2020 | Password: John1
 
 * Addtional Infomation that is included:
 
