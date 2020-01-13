@@ -41,7 +41,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
           writer.write("D2020");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("234");
          writer.write(System.getProperty("line.separator"));
          writer.write("John");
          writer.write(System.getProperty("line.separator"));
@@ -49,7 +49,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
           writer.write("S2020");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("John1");
          writer.write(System.getProperty("line.separator"));
          writer.write("Leah");
          writer.write(System.getProperty("line.separator"));
@@ -57,7 +57,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
           writer.write("D2021");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("L123");
          writer.write(System.getProperty("line.separator"));
          writer.write("Sammy");
          writer.write(System.getProperty("line.separator"));
@@ -83,7 +83,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
          writer.write("P2021");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("kelly111");
          writer.write(System.getProperty("line.separator"));
          writer.write("Kelly");
          writer.write(System.getProperty("line.separator"));
@@ -95,7 +95,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
          writer.write("P2022");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("12311");
          writer.write(System.getProperty("line.separator"));
          writer.write("Sam");
          writer.write(System.getProperty("line.separator"));
@@ -107,7 +107,7 @@ public class PatientManagmentSystem {
          writer.write(System.getProperty("line.separator"));
          writer.write("P2023");
          writer.write(System.getProperty("line.separator"));
-         writer.write("123");
+         writer.write("999");
          writer.write(System.getProperty("line.separator"));
          writer.write("Jolly");
          writer.write(System.getProperty("line.separator"));
