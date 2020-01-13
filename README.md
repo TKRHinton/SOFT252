@@ -2,6 +2,8 @@
 
 The application Has 4 different area including Patient, Admin,Doctor, and secretary. Here Are All the data that is included when the application starts
 
+All the code for the application is in the src folder 
+
 When you select using the drop down box you first have to click on the drop box (Not the arrow) to populate the drop down box
 
 ![](Dropdown.PNG)
