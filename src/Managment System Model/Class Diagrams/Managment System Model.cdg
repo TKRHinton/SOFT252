@@ -31,12 +31,12 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Doctor" package="" visibility="public" xPosition="1332.0" yPosition="379.0">
+    <Class name="Doctor" package="" visibility="public" xPosition="1160.0" yPosition="345.0">
       <Fields/>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Patient" package="" visibility="public" xPosition="1628.0" yPosition="607.0">
+    <Class name="Patient" package="" visibility="public" xPosition="1238.0" yPosition="558.0">
       <Fields>
         <Field name="String" type="Age" visibility="private"/>
         <Field name="String" type="Gender" visibility="private"/>
@@ -49,12 +49,12 @@
         <Method name="SetGender" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Secrectary" package="" visibility="public" xPosition="1160.0" yPosition="865.0">
+    <Class name="Secrectary" package="" visibility="public" xPosition="1048.0" yPosition="814.0">
       <Fields/>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Account Request" package="" visibility="public" xPosition="1970.0" yPosition="412.0">
+    <Class name="Account Request" package="" visibility="public" xPosition="1740.0" yPosition="79.0">
       <Fields>
         <Field name="String" type="User_ID" visibility="private"/>
         <Field name="String" type="Name" visibility="private"/>
@@ -62,7 +62,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Appointment" package="" visibility="public" xPosition="1950.0" yPosition="230.0">
+    <Class name="Appointment" package="" visibility="public" xPosition="1562.0" yPosition="69.0">
       <Fields>
         <Field name="String" type="Patient" visibility="private"/>
         <Field name="String" type="Doctor" visibility="private"/>
@@ -71,7 +71,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="DoctorFeedback" package="" visibility="public" xPosition="1950.0" yPosition="60.0">
+    <Class name="DoctorFeedback" package="" visibility="public" xPosition="1352.0" yPosition="69.0">
       <Fields>
         <Field name="String" type="Doctor_ID" visibility="private"/>
         <Field name="String" type="Rating" visibility="private"/>
@@ -80,7 +80,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Medicine" package="" visibility="public" xPosition="109.0" yPosition="147.0">
+    <Class name="Medicine" package="" visibility="public" xPosition="1970.0" yPosition="457.0">
       <Fields>
         <Field name="Medicine" type="String" visibility="private"/>
       </Fields>
@@ -90,7 +90,7 @@
         <Method name="Getmedicine" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Perscription" package="" visibility="public" xPosition="535.0" yPosition="100.0">
+    <Class name="Perscription" package="" visibility="public" xPosition="1970.0" yPosition="96.0">
       <Fields>
         <Field name="String" type="Doctor_ID" visibility="private"/>
         <Field name="String" type="Patient_ID" visibility="private"/>
@@ -154,28 +154,55 @@
         <Method name="Generate" returnType="String" visibility="public"/>
       </Methods>
     </Class>
+    <Class name="Utility" package="" visibility="public" xPosition="1136.0" yPosition="69.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
     <Interface name="GeneratorInterface" package="" visibility="public" xPosition="383.0" yPosition="516.0">
       <Methods>
         <Method name="Generate" returnType="String" visibility="public"/>
       </Methods>
     </Interface>
-    <Class name="Utility" package="" visibility="public" xPosition="1318.0" yPosition="230.0">
+    <Class name="WritingPatient" package="" visibility="public" xPosition="1510.0" yPosition="636.0">
       <Fields/>
       <Constructors/>
-      <Methods/>
+      <Methods>
+        <Method name="Addedinfo" returnType="Void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WritingUser" package="" visibility="public" xPosition="1706.0" yPosition="636.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="AddedInfo" returnType="Void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="WritingTemplate" package="" visibility="public" isAbstract="true" xPosition="1582.0" yPosition="368.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Writetofilel" returnType="void" visibility="public" isFinal="true"/>
+        <Method name="Basicinfo" returnType="void" visibility="public"/>
+        <Method name="Addedinfo" returnType="Void" visibility="public" isAbstract="true"/>
+      </Methods>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <IsRelation name="is" source="Administrator" target="Users"/>
-    <IsRelation name="is" source="Secrectary" target="Users"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GeneratePatientID" target="GeneratorInterface"/>
-    <HasRelation name="Has A" source="Users" target="GeneratorInterface" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GernateSecretaryIDD" target="GeneratorInterface"/>
     <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GeneratePassword" target="GeneratorInterface"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GenerateDoctorID" target="GeneratorInterface"/>
-    <HasRelation name="Medicine" source="Medicine" target="Perscription" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
-    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GenerateAdminID" target="GeneratorInterface"/>
-    <IsRelation name="is" source="Doctor" target="Users"/>
     <IsRelation name="is" source="Patient" target="Users"/>
+    <IsRelation name="is" source="WritingUser" target="WritingTemplate"/>
+    <IsRelation name="is" source="WritingPatient" target="WritingTemplate"/>
+    <UseRelation name="Patient" source="WritingTemplate" target="Patient" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="User" source="WritingTemplate" target="Users" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Has A" source="Users" target="GeneratorInterface" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Secrectary" target="Users"/>
+    <IsRelation name="is" source="Administrator" target="Users"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GenerateAdminID" target="GeneratorInterface"/>
+    <HasRelation name="Medicine" source="Medicine" target="Perscription" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GernateSecretaryIDD" target="GeneratorInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GenerateDoctorID" target="GeneratorInterface"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="GeneratePatientID" target="GeneratorInterface"/>
+    <IsRelation name="is" source="Doctor" target="Users"/>
   </ClassDiagramRelations>
 </ClassDiagram>
