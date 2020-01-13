@@ -13,6 +13,10 @@ import java.util.Random;
  */
 public class GeneratePassword implements GeneratorInterface{
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String Generate(){
         

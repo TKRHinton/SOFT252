@@ -24,36 +24,60 @@ public class AccountRequest {
     private String PatientName;
     private String PatientAddress;
 
+    /**
+     *
+     */
     public AccountRequest() {
     }
 
+    /**
+     *
+     * @param PatientName
+     * @param PatientAddress
+     */
     public AccountRequest(String PatientName, String PatientAddress) {
         this.PatientName = PatientName;
         this.PatientAddress = PatientAddress;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPatientName() {
         return PatientName;
     }
 
+    /**
+     *
+     * @param PatientName
+     */
     public void setPatientName(String PatientName) {
         this.PatientName = PatientName;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPatientAddress() {
         return PatientAddress;
     }
 
+    /**
+     *
+     * @param PatientAddress
+     */
     public void setPatientAddress(String PatientAddress) {
         this.PatientAddress = PatientAddress;
     }
     
-    
-    
-    
-      
-        
-         public static void DeleteAccountRequest(String SelectedUser) throws IOException
+    /**
+     *
+     * @param SelectedUser
+     * @throws IOException
+     */
+    public static void DeleteAccountRequest(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
             File oldFile = new File("AccountRequest.txt");
@@ -99,7 +123,12 @@ public class AccountRequest {
              }
         }
          
-              public static void newAccountRequest (User Request) throws IOException
+    /**
+     *
+     * @param Request
+     * @throws IOException
+     */
+    public static void newAccountRequest (User Request) throws IOException
      {
            try (FileWriter writer = new FileWriter("AccountRequest.txt", true)) {
           //  writer.write(System.getProperty("line.separator"));
@@ -109,7 +138,11 @@ public class AccountRequest {
              writer.close();
            }}
            
-           public static ArrayList<AccountRequest> readAccountRequest()
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<AccountRequest> readAccountRequest()
      {
            ArrayList<AccountRequest> newRequest = new ArrayList<>();
              

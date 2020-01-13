@@ -313,14 +313,8 @@ public class LoginPage extends javax.swing.JFrame {
         
         String InputPassword = txtPassword.getText();
         
-       // if(InputID.startsWith("P"))
-      //  {
-            // result = checkPatientDetails(InputID,InputPassword);
-      //  }
-       // else
-       // {
-             result = checkDetails(InputID,InputPassword);
-      //  }
+        result = checkDetails(InputID,InputPassword);
+
         
         System.out.println(result);
         

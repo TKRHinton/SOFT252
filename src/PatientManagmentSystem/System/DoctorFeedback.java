@@ -20,40 +20,78 @@ public class DoctorFeedback {
     private String Rating;
     private String FeedbackNotes;
 
+    /**
+     *
+     */
     public DoctorFeedback() {
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     * @param Rating
+     * @param FeedbackNotes
+     */
     public DoctorFeedback(String Doctor_ID, String Rating, String FeedbackNotes) {
         this.Doctor_ID = Doctor_ID;
         this.Rating = Rating;
         this.FeedbackNotes = FeedbackNotes;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getRating() {
         return Rating;
     }
 
+    /**
+     *
+     * @param Rating
+     */
     public void setRating(String Rating) {
         this.Rating = Rating;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFeedbackNotes() {
         return FeedbackNotes;
     }
 
+    /**
+     *
+     * @param FeedbackNotes
+     */
     public void setFeedbackNotes(String FeedbackNotes) {
         this.FeedbackNotes = FeedbackNotes;
     }
     
-      public static void newFeedback(DoctorFeedback newFeedback) throws IOException
+    /**
+     *
+     * @param newFeedback
+     * @throws IOException
+     */
+    public static void newFeedback(DoctorFeedback newFeedback) throws IOException
         {
             try (FileWriter writer = new FileWriter("DoctorFeedback.txt", true)) {
             writer.write(newFeedback.getDoctor_ID() );
@@ -66,7 +104,11 @@ public class DoctorFeedback {
         }                
         }
         
-        public static ArrayList<DoctorFeedback> readFeedback()
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<DoctorFeedback> readFeedback()
         {
                 ArrayList<DoctorFeedback> feedback = new ArrayList<>();
         

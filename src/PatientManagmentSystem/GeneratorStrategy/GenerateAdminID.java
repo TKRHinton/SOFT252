@@ -13,8 +13,11 @@ import java.util.Random;
  */
 public class GenerateAdminID implements GeneratorInterface{
     
-    
-     @Override
+    /**
+     *
+     * @return
+     */
+    @Override
     public String Generate(){
         String AdminID = "A";
         String Password = "";

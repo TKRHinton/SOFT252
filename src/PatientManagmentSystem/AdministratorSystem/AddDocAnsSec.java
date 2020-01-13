@@ -6,9 +6,10 @@
 package PatientManagmentSystem.AdministratorSystem;
 import PatientManagmentSystem.GeneratorStrategy.GenerateDoctorID;
 import PatientManagmentSystem.GeneratorStrategy.GenerateSecretaryID;
+import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
-//import static PatientManagmentSystem.Utility.GenerateID;
-import static PatientManagmentSystem.Utility.newUser;
+import PatientManagmentSystem.WritingTemplate;
+import PatientManagmentSystem.WritingUser;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -311,11 +312,13 @@ public class AddDocAnsSec extends javax.swing.JFrame {
         String InputPassword = txtPassword.getText();
         
         //Creates A new user object
-        User user = new User(ID,InputName,InputAddress,InputPassword);
+        Patient user = new Patient(ID,InputName,InputAddress,InputPassword,"","");
+        WritingTemplate simpleuser = new WritingUser();
+        String file = "accounts.txt";
         
         //Trys to write new user in text file
         try {
-            newUser(user);
+            simpleuser.writetofile(user, file);
             JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error:" + ex );

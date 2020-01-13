@@ -23,9 +23,21 @@ public class Perscription {
     private String Quantity;
     private String Dosage;
 
+    /**
+     *
+     */
     public Perscription() {
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     * @param Patient_ID
+     * @param DoctorNotes
+     * @param Medicine
+     * @param Quantity
+     * @param Dosage
+     */
     public Perscription(String Doctor_ID, String Patient_ID, String DoctorNotes, String Medicine, String Quantity, String Dosage) {
         this.Doctor_ID = Doctor_ID;
         this.Patient_ID = Patient_ID;
@@ -35,55 +47,108 @@ public class Perscription {
         this.Dosage = Dosage;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPatient_ID() {
         return Patient_ID;
     }
 
+    /**
+     *
+     * @param Patient_ID
+     */
     public void setPatient_ID(String Patient_ID) {
         this.Patient_ID = Patient_ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDoctorNotes() {
         return DoctorNotes;
     }
 
+    /**
+     *
+     * @param DoctorNotes
+     */
     public void setDoctorNotes(String DoctorNotes) {
         this.DoctorNotes = DoctorNotes;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getMedicine() {
         return Medicine;
     }
 
+    /**
+     *
+     * @param Medicine
+     */
     public void setMedicine(String Medicine) {
         this.Medicine = Medicine;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getQuantity() {
         return Quantity;
     }
 
+    /**
+     *
+     * @param Quantity
+     */
     public void setQuantity(String Quantity) {
         this.Quantity = Quantity;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDosage() {
         return Dosage;
     }
 
+    /**
+     *
+     * @param Dosage
+     */
     public void setDosage(String Dosage) {
         this.Dosage = Dosage;
     }
     
-     public static void AddPersrciption( Perscription newPersrciption) throws IOException
+    /**
+     *
+     * @param newPersrciption
+     * @throws IOException
+     */
+    public static void AddPersrciption( Perscription newPersrciption) throws IOException
     {
          try (FileWriter writer = new FileWriter("Perscription.txt", true)) {
            
@@ -104,7 +169,11 @@ public class Perscription {
       
     }
      
-      public static ArrayList<Perscription> readPerscription()
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<Perscription> readPerscription()
      {
            ArrayList<Perscription> newPerscription = new ArrayList<>();
         

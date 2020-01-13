@@ -11,11 +11,20 @@ package PatientManagmentSystem.Users;
  */
 public class Secretary extends User{
 
-
+    /**
+     *
+     * @param user_ID
+     * @param Name
+     * @param Address
+     * @param Password
+     */
     public Secretary(String user_ID, String Name, String Address, String Password) {
           super(user_ID, Name,Address,Password);
     }
 
+    /**
+     *
+     */
     public Secretary() {
     }
 

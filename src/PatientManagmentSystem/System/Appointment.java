@@ -24,41 +24,78 @@ public class Appointment {
     private String Patient_ID;
     private String Dates;
 
+    /**
+     *
+     */
     public Appointment() {
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     * @param Patient_ID
+     * @param Dates
+     */
     public Appointment(String Doctor_ID, String Patient_ID, String Dates) {
         this.Doctor_ID = Doctor_ID;
         this.Patient_ID = Patient_ID;
         this.Dates = Dates;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
+    /**
+     *
+     * @param Doctor_ID
+     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPatient_ID() {
         return Patient_ID;
     }
 
+    /**
+     *
+     * @param Patient_ID
+     */
     public void setPatient_ID(String Patient_ID) {
         this.Patient_ID = Patient_ID;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDates() {
         return Dates;
     }
 
+    /**
+     *
+     * @param Dates
+     */
     public void setDates(String Dates) {
         this.Dates = Dates;
     }
     
-    
-      public static void DeleteAppointmentRequest(String SelectedUser) throws IOException
+    /**
+     *
+     * @param SelectedUser
+     * @throws IOException
+     */
+    public static void DeleteAppointmentRequest(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
             File oldFile = new File("RequestAppointment.txt");
@@ -106,8 +143,11 @@ public class Appointment {
              }
         }
       
-      
-       public static ArrayList<Appointment> readAppointment()
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<Appointment> readAppointment()
     {
         ArrayList<Appointment> newAppointment = new ArrayList<>();
         
@@ -137,7 +177,11 @@ public class Appointment {
         return (newAppointment);
         }
         
-     
+    /**
+     *
+     * @param newAppointment
+     * @throws IOException
+     */
     public static void AddAppointment( Appointment newAppointment) throws IOException
     {
          try (FileWriter writer = new FileWriter("Appointment.txt", true)) {
@@ -151,7 +195,12 @@ public class Appointment {
         }      
     }
                
-     public static void AddAppointmentRequest( Appointment newAppointment) throws IOException
+    /**
+     *
+     * @param newAppointment
+     * @throws IOException
+     */
+    public static void AddAppointmentRequest( Appointment newAppointment) throws IOException
     {
          try (FileWriter writer = new FileWriter("RequestAppointment.txt", true)) {
            // writer.write(System.getProperty("line.separator"));
@@ -164,7 +213,11 @@ public class Appointment {
         }     
     }
      
-       public static ArrayList<Appointment> readAppointmentRequest()
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<Appointment> readAppointmentRequest()
     {
         ArrayList<Appointment> newAppointment = new ArrayList<>();
              

@@ -14,11 +14,24 @@ public class Patient extends User{
     private String Gender;
     private String Age;
     
+    /**
+     *
+     */
     public Patient()
     {
         
     }
-        public Patient(String user_ID,String Name,String Address,String Password, String Gender,String Age)
+
+    /**
+     *
+     * @param user_ID
+     * @param Name
+     * @param Address
+     * @param Password
+     * @param Gender
+     * @param Age
+     */
+    public Patient(String user_ID,String Name,String Address,String Password, String Gender,String Age)
     {
         super(user_ID, Name,Address,Password);
 
@@ -26,19 +39,34 @@ public class Patient extends User{
         this.Age = Age;       
     }
 
-
+    /**
+     *
+     * @return
+     */
     public String getGender() {
         return Gender;
     }
 
+    /**
+     *
+     * @param Gender
+     */
     public void setGender(String Gender) {
         this.Gender = Gender;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getAge() {
         return Age;
     }
 
+    /**
+     *
+     * @param Age
+     */
     public void setAge(String Age) {
         this.Age = Age;
     }

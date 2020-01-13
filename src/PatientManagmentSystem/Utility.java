@@ -28,10 +28,14 @@ import javax.swing.JOptionPane;
  */
 public class Utility {
     
+ /**
+ * <p> Reads the file accounts.TXT and returns values in array list</p?
+ * @return  users : An Array list of Accounts (Doctors/Admin/Secretary)
+ */
+    
     public static ArrayList<User> ReadAccountFile()
     {
         ArrayList<User> users = new ArrayList<>();
-        
         try
         {
             FileReader fread = new FileReader("accounts.txt");
@@ -69,6 +73,11 @@ public class Utility {
         
         return (users);
     }
+    
+     /**
+ * <p> Reads the file accountsPatient.TXT and returns values in array list</p?
+ * @return  users : An Array list of Accounts (Patients)
+ */
        
      public static ArrayList<Patient> ReadPatientFile()
     {
@@ -103,7 +112,14 @@ public class Utility {
         
         return (users);
     }
-      public static boolean checkDetails(String username, String password)
+     
+    /**
+     *
+     * @param username
+     * @param password
+     * @return
+     */
+    public static boolean checkDetails(String username, String password)
       {
           boolean Correct = false;
           
@@ -137,44 +153,12 @@ public class Utility {
           return Correct;        
         }
           
-      
-      public static void newUser(User newuser) throws IOException
-      {              
-        try (FileWriter writer = new FileWriter("accounts.txt", true)) {
-            writer.write(newuser.getUser_ID());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getPassword());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getName());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getAddress());
-            writer.write(System.getProperty("line.separator"));
-            writer.close();
-        }                
-      }
-      
-        public static void newPatient(Patient newuser) throws IOException
-      {              
-        try (FileWriter writer = new FileWriter("accountsPatient.txt", true)) {
-            writer.write(newuser.getUser_ID());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getPassword());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getName());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getAddress());
-            writer.write(System.getProperty("line.separator"));           
-            writer.write(newuser.getAge());
-            writer.write(System.getProperty("line.separator"));
-            writer.write(newuser.getGender());
-            writer.write(System.getProperty("line.separator"));
-            writer.close();
-        }                
-      }
-        
-        
-        
-        public static void DeleteUser(String SelectedUser) throws IOException
+    /**
+     *
+     * @param SelectedUser
+     * @throws IOException
+     */
+    public static void DeleteUser(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
             File oldFile = new File("accounts.txt");
@@ -225,7 +209,12 @@ public class Utility {
              }
         }
         
-         public static void DeletePatient(String SelectedUser) throws IOException
+    /**
+     *
+     * @param SelectedUser
+     * @throws IOException
+     */
+    public static void DeletePatient(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
             File oldFile = new File("accountsPatient.txt");
@@ -281,7 +270,12 @@ public class Utility {
              }
         }
              
-      public static void WritePatientlogin (String ID) throws IOException
+    /**
+     *
+     * @param ID
+     * @throws IOException
+     */
+    public static void WritePatientlogin (String ID) throws IOException
      {
            try (FileWriter writer = new FileWriter("Logged.txt", false)) {
             writer.write(ID );
@@ -290,7 +284,12 @@ public class Utility {
            }
      }
              
-       public static void WriteDeleteRequest(String ID) throws IOException
+    /**
+     *
+     * @param ID
+     * @throws IOException
+     */
+    public static void WriteDeleteRequest(String ID) throws IOException
      {
            try (FileWriter writer = new FileWriter("DeleteRequest.txt", true)) {
             
@@ -302,7 +301,11 @@ public class Utility {
            }
      }
              
-               public static ArrayList<User> ReadDeleteRequest()                      
+    /**
+     *
+     * @return
+     */
+    public static ArrayList<User> ReadDeleteRequest()                      
     {
         ArrayList<User> newDelete = new ArrayList<>();
         
@@ -331,7 +334,11 @@ public class Utility {
         return (newDelete);
         }
       
-        public static String ReadPatientlogin()
+    /**
+     *
+     * @return
+     */
+    public static String ReadPatientlogin()
     {
         
         String ID = "";
@@ -354,7 +361,12 @@ public class Utility {
         return (ID);
         }
              
-           public static void DeleteDeleteRequest(String SelectedUser) throws IOException
+    /**
+     *
+     * @param SelectedUser
+     * @throws IOException
+     */
+    public static void DeleteDeleteRequest(String SelectedUser) throws IOException
         {
             String tempFile = "temp.txt";
             File oldFile = new File("DeleteRequest.txt");

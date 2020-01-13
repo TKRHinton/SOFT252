@@ -5,14 +5,27 @@
  */
 package PatientManagmentSystem.Users;
 
+/**
+ *
+ * @author Theon
+ */
 public class Doctor extends User{
 
-    
+    /**
+     *
+     */
     public Doctor()
     {
         
     }
     
+    /**
+     *
+     * @param user_ID
+     * @param Name
+     * @param Address
+     * @param Password
+     */
     public Doctor(String user_ID, String Name, String Address, String Password)
     {
         super(user_ID, Name,Address,Password);

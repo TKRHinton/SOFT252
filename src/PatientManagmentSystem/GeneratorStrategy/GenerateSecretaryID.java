@@ -13,7 +13,10 @@ import java.util.Random;
  */
 public class GenerateSecretaryID implements GeneratorInterface{
 
-        
+    /**
+     *
+     * @return
+     */
     @Override
     public String Generate(){
         String SecretaryID = "S";

@@ -11,7 +11,11 @@ package PatientManagmentSystem.GeneratorStrategy;
  */
 public interface GeneratorInterface {
     
-     String Generate();
+    /**
+     *
+     * @return
+     */
+    String Generate();
     
     
 }

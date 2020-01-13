@@ -12,10 +12,10 @@ import static PatientManagmentSystem.System.AccountRequest.readAccountRequest;
 import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
 import static PatientManagmentSystem.Utility.DeleteUser;
-//import static PatientManagmentSystem.Utility.GenerateID;
 import static PatientManagmentSystem.Utility.ReadPatientFile;
-import static PatientManagmentSystem.Utility.newPatient;
-import static PatientManagmentSystem.Utility.newUser;
+import PatientManagmentSystem.WritingPatient;
+import PatientManagmentSystem.WritingTemplate;
+import PatientManagmentSystem.WritingUser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -23,7 +23,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Theon
@@ -36,7 +35,6 @@ public class ApproveAccount extends javax.swing.JFrame {
     public ApproveAccount() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -302,24 +300,21 @@ public class ApproveAccount extends javax.swing.JFrame {
         
         String PatientName = tableRequests.getValueAt(selectedRowIndex,0).toString();
         String PatientAddress = tableRequests.getValueAt(selectedRowIndex,1).toString();
-
-
         
         User user = new User();
         user.setGenerateType(new GeneratePatientID());
         String ID = user.GenerateID();
-               // GenerateID("P"); 
         user.setGenerateType(new GeneratePassword());
         String Password = user.GenerateID();
         String age = "22";
         String gender = "male";
-          //  ID = GenerateID("P");
             
              Patient newpatient = new Patient(ID,PatientName,PatientAddress,Password,age,gender);
-             System.out.println(newpatient.getUser_ID());
+             WritingTemplate simpleuser = new WritingPatient();
+              String file = "accountsPatient.txt";
              
         try {
-            newPatient(newpatient);
+            simpleuser.writetofile(newpatient, file);
             
              //calls function to delete request
             DeleteAccountRequest(PatientName);
@@ -340,17 +335,7 @@ public class ApproveAccount extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "New Account Has been created \n ID :" + ID + "\n Password: " + Password );
         } catch (IOException ex) {
             Logger.getLogger(ApproveAccount.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    
-                       
-        
-
-        
-        
-        
-        
-        
+        }       
     }//GEN-LAST:event_btnAddFeedbackMouseClicked
 
     /**

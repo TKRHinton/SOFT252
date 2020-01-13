@@ -13,7 +13,10 @@ import java.util.Random;
  */
 public class GeneratePatientID implements GeneratorInterface{
 
-        
+    /**
+     *
+     * @return
+     */
     @Override
     public String Generate(){
         String PatientID = "P";

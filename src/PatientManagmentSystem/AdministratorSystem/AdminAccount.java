@@ -6,9 +6,10 @@
 package PatientManagmentSystem.AdministratorSystem;
 import PatientManagmentSystem.GeneratorStrategy.GenerateAdminID;
 import PatientManagmentSystem.Users.Administrator;
+import PatientManagmentSystem.Users.Patient;
 import PatientManagmentSystem.Users.User;
-//import static PatientManagmentSystem.Utility.GenerateID;
-import static PatientManagmentSystem.Utility.newUser;
+import PatientManagmentSystem.WritingTemplate;
+import PatientManagmentSystem.WritingUser;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -310,10 +311,12 @@ public class AdminAccount extends javax.swing.JFrame {
         String InputAddress = txtAddress.getText();
         String InputPassword = txtPassword.getText();
         //Creates A new user object
-        User Admin = new User(ID,InputName,InputAddress,InputPassword);
+        Patient Admin = new Patient(ID,InputName,InputAddress,InputPassword,"","");
+        WritingTemplate simpleuser = new WritingUser();
+        String file = "accounts.txt";
         //Trys to write new user in text file
         try {
-            newUser(Admin);
+             simpleuser.writetofile(Admin, file);
             JOptionPane.showMessageDialog(null, "User has Been Add \n Your ID is:" + ID );
         } catch (IOException ex) {
             Logger.getLogger(AdminAccount.class.getName()).log(Level.SEVERE, null, ex);
