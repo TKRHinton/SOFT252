@@ -61,3 +61,4 @@ Perscription:
 
 Request Appointment:
 * DoctorID:D2020 | PatientID:P2021 | Date:21/01/2020
+* DoctorID:D2020 | PatientID:P2021 | Date:21/01/2020
