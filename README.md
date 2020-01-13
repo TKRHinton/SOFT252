@@ -4,6 +4,8 @@ The application Has 4 different area including Patient, Admin,Doctor, and secret
 
 All the code for the application is in the src folder 
 
+UML located: src/Managment System Model/Class Diagrams/Managment System Model.cdg
+
 When you select using the drop down box you first have to click on the drop box (Not the arrow) to populate the drop down box
 
 ![](Dropdown.PNG)
