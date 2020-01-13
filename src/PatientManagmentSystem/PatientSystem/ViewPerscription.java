@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class ViewPerscription extends javax.swing.JFrame {
 

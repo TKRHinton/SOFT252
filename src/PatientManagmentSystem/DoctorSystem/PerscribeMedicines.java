@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class PerscribeMedicines extends javax.swing.JFrame {
 

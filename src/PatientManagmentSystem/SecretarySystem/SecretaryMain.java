@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class SecretaryMain extends javax.swing.JFrame {
 

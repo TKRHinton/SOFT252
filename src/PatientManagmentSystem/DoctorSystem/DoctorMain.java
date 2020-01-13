@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class DoctorMain extends javax.swing.JFrame {
 

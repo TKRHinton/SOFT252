@@ -19,7 +19,7 @@ import static PatientManagmentSystem.Utility.DeleteUser;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class RemovePatient extends javax.swing.JFrame {
 

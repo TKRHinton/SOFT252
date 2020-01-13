@@ -7,23 +7,20 @@ package PatientManagmentSystem.Users;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Administrator extends User {
     
-    /**
-     *
-     */
     public Administrator()
     {
     }
        
     /**
      *
-     * @param user_ID
-     * @param Name
-     * @param Address
-     * @param Password
+     * @param user_ID : Admin ID
+     * @param Name : Name of admin
+     * @param Address : Address of Admin
+     * @param Password : Admin Password
      */
     public Administrator(String user_ID,String Name, String Address, String Password)
     {

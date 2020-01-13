@@ -9,13 +9,13 @@ import java.util.Random;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class GenerateAdminID implements GeneratorInterface{
     
     /**
-     *
-     * @return
+     *<p>Generates a new random ID</p>
+     * @return : New ID for the user
      */
     @Override
     public String Generate(){

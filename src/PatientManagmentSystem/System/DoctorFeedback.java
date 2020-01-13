@@ -13,82 +13,50 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Theon
+ * @author Thinton
  */
 public class DoctorFeedback {
     private String Doctor_ID;
     private String Rating;
     private String FeedbackNotes;
 
-    /**
-     *
-     */
     public DoctorFeedback() {
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     * @param Rating
-     * @param FeedbackNotes
-     */
     public DoctorFeedback(String Doctor_ID, String Rating, String FeedbackNotes) {
         this.Doctor_ID = Doctor_ID;
         this.Rating = Rating;
         this.FeedbackNotes = FeedbackNotes;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public String getRating() {
         return Rating;
     }
 
-    /**
-     *
-     * @param Rating
-     */
     public void setRating(String Rating) {
         this.Rating = Rating;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getFeedbackNotes() {
         return FeedbackNotes;
     }
 
-    /**
-     *
-     * @param FeedbackNotes
-     */
     public void setFeedbackNotes(String FeedbackNotes) {
         this.FeedbackNotes = FeedbackNotes;
     }
     
     /**
-     *
-     * @param newFeedback
+     *<p> Adds a new feedback object into text file feedback</p>
+     * @param newFeedback: New feedback made by user when creating some feedback
      * @throws IOException
      */
     public static void newFeedback(DoctorFeedback newFeedback) throws IOException
@@ -105,8 +73,8 @@ public class DoctorFeedback {
         }
         
     /**
-     *
-     * @return
+     *<p>Reads all the current feedback in the designated text file </p>
+     * @return : An Doctor Feedback Array list of all feedback
      */
     public static ArrayList<DoctorFeedback> readFeedback()
         {

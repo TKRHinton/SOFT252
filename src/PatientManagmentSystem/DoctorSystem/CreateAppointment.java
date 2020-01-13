@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class CreateAppointment extends javax.swing.JFrame {
 

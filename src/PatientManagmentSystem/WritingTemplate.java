@@ -12,14 +12,14 @@ import java.io.IOException;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public abstract class  WritingTemplate {
     
     /**
-     *
-     * @param newuser
-     * @param file
+     *<p>Writes the basic  of user into selected file</p>
+     * @param newuser: New user to be added
+     * @param file: File to write new user in
      * @throws IOException
      */
     public final void writetofile(Patient newuser, String file) throws IOException{
@@ -32,11 +32,10 @@ public abstract class  WritingTemplate {
         }
     };
     
-    /**
-     *
-     * @param newuser
-     * @param file
-     * @throws IOException
+     /**
+     *<p>Writes the basic  of user into selected file</p>
+     * @param newuser: New user to be added
+     * @param file: File to write new user in
      */
     protected void Basicinfo(User newuser, String file) throws IOException{
     

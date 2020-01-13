@@ -7,13 +7,10 @@ package PatientManagmentSystem.Users;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Doctor extends User{
 
-    /**
-     *
-     */
     public Doctor()
     {
         
@@ -21,10 +18,10 @@ public class Doctor extends User{
     
     /**
      *
-     * @param user_ID
-     * @param Name
-     * @param Address
-     * @param Password
+     * @param user_ID : Doctor ID
+     * @param Name : Name of doctor
+     * @param Address : Address of doctor
+     * @param Password : Password Of Doctor Account
      */
     public Doctor(String user_ID, String Name, String Address, String Password)
     {

@@ -7,16 +7,13 @@ package PatientManagmentSystem.Users;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Patient extends User{
 
     private String Gender;
     private String Age;
     
-    /**
-     *
-     */
     public Patient()
     {
         
@@ -24,12 +21,12 @@ public class Patient extends User{
 
     /**
      *
-     * @param user_ID
-     * @param Name
-     * @param Address
-     * @param Password
-     * @param Gender
-     * @param Age
+     * @param user_ID : User ID
+     * @param Name : Name of Patient
+     * @param Address: Address of Patient
+     * @param Password : Password of patient account
+     * @param Gender : Patient Gender
+     * @param Age : Patient Age
      */
     public Patient(String user_ID,String Name,String Address,String Password, String Gender,String Age)
     {
@@ -39,34 +36,18 @@ public class Patient extends User{
         this.Age = Age;       
     }
 
-    /**
-     *
-     * @return
-     */
     public String getGender() {
         return Gender;
     }
 
-    /**
-     *
-     * @param Gender
-     */
     public void setGender(String Gender) {
         this.Gender = Gender;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getAge() {
         return Age;
     }
 
-    /**
-     *
-     * @param Age
-     */
     public void setAge(String Age) {
         this.Age = Age;
     }

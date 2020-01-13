@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class CreateMedicines extends javax.swing.JFrame {
 

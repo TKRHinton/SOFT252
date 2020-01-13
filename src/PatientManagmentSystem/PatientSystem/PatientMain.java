@@ -16,7 +16,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class PatientMain extends javax.swing.JFrame {
 

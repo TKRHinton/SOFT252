@@ -17,82 +17,50 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Appointment {
     private String Doctor_ID;
     private String Patient_ID;
     private String Dates;
 
-    /**
-     *
-     */
+
     public Appointment() {
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     * @param Patient_ID
-     * @param Dates
-     */
     public Appointment(String Doctor_ID, String Patient_ID, String Dates) {
         this.Doctor_ID = Doctor_ID;
         this.Patient_ID = Patient_ID;
         this.Dates = Dates;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPatient_ID() {
         return Patient_ID;
     }
 
-    /**
-     *
-     * @param Patient_ID
-     */
     public void setPatient_ID(String Patient_ID) {
         this.Patient_ID = Patient_ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDates() {
         return Dates;
     }
 
-    /**
-     *
-     * @param Dates
-     */
+
     public void setDates(String Dates) {
         this.Dates = Dates;
-    }
-    
+    }  
     /**
-     *
-     * @param SelectedUser
+     *<p>Takes user and duplicate file except of param user, then the old file is replaced by the new file, Removing selected user  </p>
+     * @param SelectedUser : User that has request accepted
      * @throws IOException
      */
     public static void DeleteAppointmentRequest(String SelectedUser) throws IOException
@@ -144,8 +112,8 @@ public class Appointment {
         }
       
     /**
-     *
-     * @return
+     *<p> Reads appointment file and return all data as an array list </p>
+     * @return : An Appointment Array list of all current appointments 
      */
     public static ArrayList<Appointment> readAppointment()
     {
@@ -178,8 +146,8 @@ public class Appointment {
         }
         
     /**
-     *
-     * @param newAppointment
+     *<p>Adds a new appointment using param </p>
+     * @param newAppointment: New appointment made by the user
      * @throws IOException
      */
     public static void AddAppointment( Appointment newAppointment) throws IOException
@@ -196,8 +164,8 @@ public class Appointment {
     }
                
     /**
-     *
-     * @param newAppointment
+     *<p> Adds a new appointment request using param</p>
+     * @param newAppointment : New appointment request made by the patient
      * @throws IOException
      */
     public static void AddAppointmentRequest( Appointment newAppointment) throws IOException
@@ -214,8 +182,8 @@ public class Appointment {
     }
      
     /**
-     *
-     * @return
+     *<p> Reads all appointment requests and turns data into Appointment array list
+     * @return : An Appointment Array list of all requests</p>
      */
     public static ArrayList<Appointment> readAppointmentRequest()
     {

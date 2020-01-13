@@ -9,13 +9,13 @@ import java.util.Random;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class GeneratePassword implements GeneratorInterface{
     
     /**
-     *
-     * @return
+     *<p>Generates a new random Password</p>
+     * @return : New ID for the user
      */
     @Override
     public String Generate(){

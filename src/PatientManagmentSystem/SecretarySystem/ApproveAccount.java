@@ -25,7 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class ApproveAccount extends javax.swing.JFrame {
 

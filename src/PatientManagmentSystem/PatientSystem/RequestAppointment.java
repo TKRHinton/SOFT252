@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class RequestAppointment extends javax.swing.JFrame {
 

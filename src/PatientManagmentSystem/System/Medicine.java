@@ -13,44 +13,29 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Medicine {
     private String Medicine;
 
-    /**
-     *
-     */
     public Medicine() {
     }
 
-    /**
-     *
-     * @param Medicine
-     */
     public Medicine(String Medicine) {
         this.Medicine = Medicine;
     }
     
-    /**
-     *
-     * @return
-     */
     public String getMedicine() {
         return Medicine;
     }
-
-    /**
-     *
-     * @param Medicine
-     */
+    
     public void setMedicine(String Medicine) {
         this.Medicine = Medicine;
     }
     
     /**
-     *
-     * @return
+     *<p> Reads Medicine file and returns all data as an array list </p>
+     * @return : An array list of all medicines
      */
     public static ArrayList<Medicine> readMedicine()
     {
@@ -81,8 +66,8 @@ public class Medicine {
         }
       
     /**
-     *
-     * @return
+     *<p> Reads Medicine request file and returns all data as an array list </p>
+     * @return : An array list of all medicine requests
      */
     public static ArrayList<Medicine> readMedicineRequest()
     {
@@ -113,8 +98,8 @@ public class Medicine {
         }
         
     /**
-     *
-     * @param medicine
+     *<p> Add medicine to current medicine file</p>
+     * @param medicine : New medicine 
      * @throws IOException
      */
     public static void AddMedicine( Medicine medicine) throws IOException
@@ -128,8 +113,8 @@ public class Medicine {
     }
 
     /**
-     *
-     * @param medicine
+     *<p> Add medicine request to current medicine file</p>
+     * @param medicine : New Medicine Request
      * @throws IOException
      */
     public static void AddMedicineRequest( Medicine medicine) throws IOException

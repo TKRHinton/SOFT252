@@ -7,13 +7,13 @@ package PatientManagmentSystem.GeneratorStrategy;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public interface GeneratorInterface {
     
-    /**
-     *
-     * @return
+   /**
+     *<p>Generates a new random ID or Password depending of strategy called </p>
+     * @return : New ID for the user
      */
     String Generate();
     

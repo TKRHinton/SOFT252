@@ -16,7 +16,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class PatientManagmentSystem {
 

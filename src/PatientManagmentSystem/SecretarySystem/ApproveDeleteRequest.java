@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class ApproveDeleteRequest extends javax.swing.JFrame {
 

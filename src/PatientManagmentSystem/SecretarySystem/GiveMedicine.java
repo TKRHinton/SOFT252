@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class GiveMedicine extends javax.swing.JFrame {
 

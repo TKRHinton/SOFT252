@@ -18,63 +18,46 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class AccountRequest {
     private String PatientName;
     private String PatientAddress;
 
-    /**
-     *
-     */
+
     public AccountRequest() {
     }
 
-    /**
-     *
-     * @param PatientName
-     * @param PatientAddress
-     */
+
     public AccountRequest(String PatientName, String PatientAddress) {
         this.PatientName = PatientName;
         this.PatientAddress = PatientAddress;
     }
 
-    /**
-     *
-     * @return
-     */
+ 
     public String getPatientName() {
         return PatientName;
     }
 
-    /**
-     *
-     * @param PatientName
-     */
+
     public void setPatientName(String PatientName) {
         this.PatientName = PatientName;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public String getPatientAddress() {
         return PatientAddress;
     }
 
-    /**
-     *
-     * @param PatientAddress
-     */
+
     public void setPatientAddress(String PatientAddress) {
         this.PatientAddress = PatientAddress;
     }
     
     /**
-     *
-     * @param SelectedUser
+     *<p>Takes a user and create a temp text file with all requests except one including the user passed though, the
+     * temp file is then set at the account request file removing the one user that was passed though</p>
+     * @param SelectedUser : User of the request to be removed
      * @throws IOException
      */
     public static void DeleteAccountRequest(String SelectedUser) throws IOException
@@ -124,8 +107,8 @@ public class AccountRequest {
         }
          
     /**
-     *
-     * @param Request
+     *<p>Creates a new account request entry with selected user </p>
+     * @param Request : User to be added to request file
      * @throws IOException
      */
     public static void newAccountRequest (User Request) throws IOException
@@ -139,8 +122,8 @@ public class AccountRequest {
            }}
            
     /**
-     *
-     * @return
+     *<p> Reads all account requests and returns data as a array list</p>
+     * @return : An array list of current account requests
      */
     public static ArrayList<AccountRequest> readAccountRequest()
      {

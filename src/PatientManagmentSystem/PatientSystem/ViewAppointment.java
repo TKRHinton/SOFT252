@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class ViewAppointment extends javax.swing.JFrame {
 

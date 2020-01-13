@@ -12,18 +12,14 @@ import java.io.IOException;
 import PatientManagmentSystem.Users.User;
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class WritingUser extends WritingTemplate {
     
     @Override
     boolean Addedinfopresent() {return false;}
     
-    /**
-     *
-     * @param newuser
-     * @param file
-     */
+  
     @Override
     protected void Addedinfo(Patient newuser, String file) {      
     }    

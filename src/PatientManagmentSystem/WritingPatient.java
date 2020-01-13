@@ -14,14 +14,14 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class WritingPatient extends WritingTemplate{
     
     /**
-     *
-     * @param newuser
-     * @param file
+     *<p>Writes the basic and addtional info of user into accountsPatients.TXT file</p>
+     * @param newuser: New user to be added
+     * @param file: File to write new user in
      */
     @Override
     protected void Addedinfo(Patient newuser, String file) {

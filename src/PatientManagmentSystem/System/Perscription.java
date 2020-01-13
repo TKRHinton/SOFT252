@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class Perscription {
     private String Doctor_ID;
@@ -23,21 +23,10 @@ public class Perscription {
     private String Quantity;
     private String Dosage;
 
-    /**
-     *
-     */
+
     public Perscription() {
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     * @param Patient_ID
-     * @param DoctorNotes
-     * @param Medicine
-     * @param Quantity
-     * @param Dosage
-     */
     public Perscription(String Doctor_ID, String Patient_ID, String DoctorNotes, String Medicine, String Quantity, String Dosage) {
         this.Doctor_ID = Doctor_ID;
         this.Patient_ID = Patient_ID;
@@ -47,105 +36,57 @@ public class Perscription {
         this.Dosage = Dosage;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDoctor_ID() {
         return Doctor_ID;
     }
 
-    /**
-     *
-     * @param Doctor_ID
-     */
     public void setDoctor_ID(String Doctor_ID) {
         this.Doctor_ID = Doctor_ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPatient_ID() {
         return Patient_ID;
     }
 
-    /**
-     *
-     * @param Patient_ID
-     */
     public void setPatient_ID(String Patient_ID) {
         this.Patient_ID = Patient_ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDoctorNotes() {
         return DoctorNotes;
     }
 
-    /**
-     *
-     * @param DoctorNotes
-     */
     public void setDoctorNotes(String DoctorNotes) {
         this.DoctorNotes = DoctorNotes;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMedicine() {
         return Medicine;
     }
 
-    /**
-     *
-     * @param Medicine
-     */
     public void setMedicine(String Medicine) {
         this.Medicine = Medicine;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getQuantity() {
         return Quantity;
     }
 
-    /**
-     *
-     * @param Quantity
-     */
     public void setQuantity(String Quantity) {
         this.Quantity = Quantity;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getDosage() {
         return Dosage;
     }
 
-    /**
-     *
-     * @param Dosage
-     */
     public void setDosage(String Dosage) {
         this.Dosage = Dosage;
     }
     
     /**
-     *
-     * @param newPersrciption
+     *<p> When entering perscription it will be put in a object and  writing in the perscription text file </p>
+     * @param newPersrciption : The new perscription 
      * @throws IOException
      */
     public static void AddPersrciption( Perscription newPersrciption) throws IOException
@@ -170,8 +111,8 @@ public class Perscription {
     }
      
     /**
-     *
-     * @return
+     * <p> When checking perscription it will look for the text file and read all the perscriptions and put it in an array list </p>
+     * @return : A Perscrption array list of all the perscription issued 
      */
     public static ArrayList<Perscription> readPerscription()
      {

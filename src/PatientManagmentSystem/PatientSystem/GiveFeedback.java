@@ -18,7 +18,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author Theon
+ * @author THinton
  */
 public class GiveFeedback extends javax.swing.JFrame {
 

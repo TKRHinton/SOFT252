@@ -24,7 +24,7 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 /**
  *
- * @author thinton
+ * @author THinton
  */
 public class Utility {
     
@@ -114,9 +114,9 @@ public class Utility {
     }
      
     /**
-     *
-     * @param username
-     * @param password
+     *<p> Checks the users input to see if it matches with current user records</p>
+     * @param username : User username input
+     * @param password : User Password Input
      * @return
      */
     public static boolean checkDetails(String username, String password)
@@ -154,8 +154,8 @@ public class Utility {
         }
           
     /**
-     *
-     * @param SelectedUser
+     *<p>Takes Selected ID and find it in the text file and remove it </p>
+     * @param SelectedUser : The selected ID to remove
      * @throws IOException
      */
     public static void DeleteUser(String SelectedUser) throws IOException
@@ -210,8 +210,8 @@ public class Utility {
         }
         
     /**
-     *
-     * @param SelectedUser
+     *<p>Takes Selected ID and find it in the text file and remove it </p>
+     * @param SelectedUser : The selected ID to remove
      * @throws IOException
      */
     public static void DeletePatient(String SelectedUser) throws IOException
@@ -271,8 +271,8 @@ public class Utility {
         }
              
     /**
-     *
-     * @param ID
+     *<p>Puts the ID of the user that has logged in a Logged file to keep track of what user has logged in</p>
+     * @param ID: User that has logged in
      * @throws IOException
      */
     public static void WritePatientlogin (String ID) throws IOException
@@ -285,8 +285,8 @@ public class Utility {
      }
              
     /**
-     *
-     * @param ID
+     *<p> Writes ID into text file when user requests their account to be deleted</p>
+     * @param ID: ID of current logged in user
      * @throws IOException
      */
     public static void WriteDeleteRequest(String ID) throws IOException
@@ -302,7 +302,7 @@ public class Utility {
      }
              
     /**
-     *
+     *<p>Reads text file to show secrectary to see all delete requests</p>
      * @return
      */
     public static ArrayList<User> ReadDeleteRequest()                      
@@ -335,7 +335,7 @@ public class Utility {
         }
       
     /**
-     *
+     *<p>Reads file to see which user is logged in</p>
      * @return
      */
     public static String ReadPatientlogin()
@@ -362,8 +362,8 @@ public class Utility {
         }
              
     /**
-     *
-     * @param SelectedUser
+     *<p>Deletes a users delete request when their request has been Accepted</p>
+     * @param SelectedUser : Current user that has had their account deleted
      * @throws IOException
      */
     public static void DeleteDeleteRequest(String SelectedUser) throws IOException

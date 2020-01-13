@@ -9,7 +9,7 @@ import PatientManagmentSystem.GeneratorStrategy.GeneratorInterface;
 
 /**
  *
- * @author thinton
+ * @author THinton
  */
 public class User {
     private String user_ID;
@@ -17,41 +17,23 @@ public class User {
     private String Address;
     private String Password;
     
-    /**
-     *
-     */
     public GeneratorInterface GenerateType;
     
-    /**
-     *
-     * @return
-     */
     public String GenerateID()
     {
         return GenerateType.Generate();
     }
     
-    /**
-     *
-     * @param newGenerateType
-     */
     public void setGenerateType(GeneratorInterface newGenerateType)
     {
         GenerateType = newGenerateType;
     }
     
-    /**
-     *
-     */
     public User()
     {
         
     }
     
-    /**
-     *
-     * @param user_ID
-     */
     public User(String user_ID)
     {
          this.user_ID = user_ID;
@@ -59,10 +41,10 @@ public class User {
     
     /**
      *
-     * @param user_ID
-     * @param Name
-     * @param Address
-     * @param Password
+     * @param user_ID : user ID
+     * @param Name : User Name
+     * @param Address : User Address
+     * @param Password : User Password
      */
     public User(String user_ID, String Name, String Address, String Password)
     {
@@ -72,77 +54,40 @@ public class User {
         this.Password = Password;
     }
     
-    /**
-     *
-     * @param Name
-     * @param Address
-     */
     public User(String Name, String Address)
     {
         this.Name = Name;
         this.Address = Address;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getUser_ID() {
         return user_ID;
     }
 
-    /**
-     *
-     * @param user_ID
-     */
     public void setUser_ID(String user_ID) {
         this.user_ID = user_ID;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getName() {
         return Name;
     }
 
-    /**
-     *
-     * @param Name
-     */
     public void setName(String Name) {
         this.Name = Name;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getAddress() {
         return Address;
     }
 
-    /**
-     *
-     * @param Address
-     */
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getPassword() {
         return Password;
     }
 
-    /**
-     *
-     * @param Password
-     */
     public void setPassword(String Password) {
         this.Password = Password;
     }
